@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[hexo博客如何加入来必力评论]]></title>
+    <url>%2F2018%2F12%2F07%2Fhexo%E5%8D%9A%E5%AE%A2%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5%E6%9D%A5%E5%BF%85%E5%8A%9B%E8%AF%84%E8%AE%BA%2F</url>
+    <content type="text"><![CDATA[前言、为什么选择了来必力 友言挂了 畅言要备案 其他的都不太方便 只有来必力比较轻巧 一、注册一个来必力账号 打开官网： https://www.livere.com/ 注册账号即可，似乎需要番蔷。 它会朝你邮箱里发送验证码，没写验证码之前千万别关掉那个韩文的弹出窗口。 二、安装来必力 如下图，选择City版。 复制“一般网页”中的代码，并记录下第二行出现的uid。 在主题的配置文件_config.yml中输入以下代码（如果已经有了就修改即可） 123livere: on: true livere_uid: xxxxx（把uid放上去） 打开D:\Program Files\Hexo\themes\miho\layout\_partial\plugins\comments（不同主题的话对应路径可能不一样），修改或新建文件：livere.ejs，把“一般网页”中的代码复制进去。 三、调整个人喜好 在来必力里自己设置即可，这一点自己搞吧，反正来必力有中文。 示例的话可以拉到本页面底部，尝试评论一下！]]></content>
+      <categories>
+        <category>信息技术</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[构造对偶]]></title>
+    <url>%2F2018%2F12%2F04%2F%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6%2F</url>
+    <content type="text"><![CDATA[前言在数学解题过程中,合理地构造形式相似，具有某种对称关系的一对对偶关系式，并通过对这对对偶关系式进行适当的和,差,积等运算，往往能使问题得到巧妙的解决，收到事半功倍的效果。 一、和差对偶例：若$3sin \theta +4cos\theta =5$，求$tan\theta $（$0&lt; \theta &lt; \frac {\pi }{2}$）。 二、互倒对偶例：对$0&lt;x,y,z&lt;1$，求证$\frac {1}{1-x+y}+\frac {1}{1-y+z}+\frac {1}{1-z+x}\geq 3$。 三、倒序对偶例：求$S=1\binom{n}{1}+2\binom{n}{2}+…+n\binom{n}{n}$。 四、定值对偶例：已知$f(x)=\frac{x^2}{1+x^2}$，求$S=f(\frac {1}{4})+f(\frac {1}{3})+f(\frac {1}{2})+f(1)+f(2)+f(3)+f(4)$。 五、奇偶对偶例：求证$\frac {1}{2} \times \frac {3}{4} \times \frac {5}{6} \times … \times \frac {2n-1}{2n}&lt;\frac {1}{\sqrt{2n+1}}$。 六、轮换对偶例：求证对$\forall a,b\in (1,+\infty )$，均有$\frac {a^2}{b-1}+\frac {b^2}{a-1}\geq 8$。 七、互余对偶例：已知$x\in \left [ 0,\frac {\pi }{2} \right ]$，解方程$cos ^2 x+cos ^2 2x+cos^2 3x=1$。]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[错位排列问题]]></title>
+    <url>%2F2018%2F11%2F16%2FDisorderly-arrangement%2F</url>
+    <content type="text"><![CDATA[一、递推式推导考虑问题：有 $n$ 个箱子，颜色分别为 $1…n$；还有 $n$ 个球，颜色也分别为 $1…n$。现在要将每一个球分别放入一个箱子里，并且每个箱子和它里面球的颜色都不一样 ，求方案数。 设 $D_n$ 表示方案数。对第$n$个球有 $n-1$ 种情况：$n$号球分别放进$1$号，$2$号，……，$n-1$号箱子。 考虑将第$n$个球放进第$k$个箱子，那么对于第$k$个球，又有两种情况：在或不在第$n$个箱子。 若在，即是将剩下$n-2$个球按上述原则继续排列，方案显然有$D_{n-2}$种。 若不在，则问题变成：第$1$个球不在$1$号箱，……，第$k-1$个球不在$k-1$号箱，第$k+1$个球不在$k+1$号箱，……，第$n-1$个球不在$n-1$号箱，第$k$个球不在$n$号箱。可以发现，这就是把第$n$个球扔掉再排列，显然方案有$D_{n-1}$种。 而$k$又有$n-1$种取值，所以有$D_n=(n-1)(D_{n-1}+D_{n-2})$。 二、由递推式推导通项式设$D_n=n!\times M_n$，易得$M_1=0$，$M_2=\frac {1}{2}$。当$n\geqslant 3$时，由$D_n=(n-1)(D_{n-1}+D_{n-2})$，得$n!M_n=(n-1)\times (n-1)!M_{n-1}+(n-1)\times (n-2)!M_{n-2}=n!M_{n-1}-(n-1)!M_{n-1}+(n-1)!M_{n-2}$约掉$(n-1)!$并移项，得$nM_n-nM_{n-1}=-M_{n-1}+M_{n-2}$再约掉$n$并变形，得$M_n-M_{n-1}=-\frac {1}{n}(M_{n-1}-M_{n-2})$不断迭代可得$M_n-M_{n-1}=(-\frac {1}{n})(-\frac {1}{n-1})…(-\frac {1}{3})(M_2-M_1)=(-1)^n \frac {1}{n!}$列出$M_i-M_{i-1}(1&lt;i\leqslant n)$并累加，得$M_n=(-1)^2\frac {1}{2!}+(-1)^3\frac {1}{3!}+…+(-1)^n\frac {1}{n!}$所以$D_n=n!M_n=n!(\frac {1}{2!}-\frac {1}{3!}+…+(-1)^n\frac {1}{n!})$ 三、由容斥原理推导通项式显然数列$\left \{ 1,2,3,…,n \right \}$的全排列有$n!$种，其中确定第$k$位是$k$的有$(n-1)!$种，所以需要减去这些；但是这样又把同时有两个数不错排的排列多排除了一次，所以需要加上；但是这样又把同时有三个数不错排的排列多加上了一次，所以需要减去……于是得$D_n=n!-\frac {n!}{1!}+\frac {n!}{2!}-\frac {n!}{3!}+…+(-1)^n\frac {n!}{n!}=n!(\frac {1}{2!}-\frac {1}{3!}+…+(-1)^n\frac {1}{n!})$ 四、常用推论 简化通项式：$D_n=\left \lfloor \frac {n!}{e}+\frac {1}{2} \right \rfloor$ 另一种递推式：$D_n=nD_{n-1}+(-1)^n$]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+        <tag>数列</tag>
+        <tag>排列组合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何破解极域电子教室]]></title>
+    <url>%2F2018%2F11%2F13%2FTopdamain%2F</url>
+    <content type="text"><![CDATA[方法一：设置防火墙首先，点击开始键，找到控制面板，打开——点击安全中心（系统与安全）——进入【Windows 防火墙】——打开或关闭防火墙——点击打开。老师通常会设置例外，那么我们为了安全起见勾选不允许例外——保存设置，你将不受控制！同学举报或老师来了你就得赶紧的——关机！ 方法二：关闭网络可以说，这是学生中最流行也是最简单最暴力的方法，甚至不用说大家就知道了——就是把网络断了。某些同学意气风发，直接把主机搬出来把网线拔了，再插上去。还有一些“优雅一点”的同学会右键右下角的网络连接图标，把网络禁止了，可是不能玩游戏了~TAT~！聪明的老师总会设置断网后锁屏~So，建议不要用这一招！！！ 方法三：破解密码打开注册表：“HKEY_LOCAL_MACHINE\SOFTWARE\TopDomain（或”Mythware\TopDomain”或“Mythware”）\e-Learning Class Standard\1.00\UninstallPasswd”就可以看见密码了，如果前面有Passwd卸载或设置的时候把它去掉就可以了（默认密码admin）！最爽的方法，可以卸载，可以右键图标设置！ 方法四：NTSD有的话执行CMD“ntsd -c q -pn StudentMain.exe”，没有NTSD到这个链接下载：http://www.pc6.com/softview/SoftView_25612.html ，然后转移到“C:\Windows\System32\”再执行上面的CMD命令！ 方法五：IE浏览器全屏状态打开IE浏览器，输入命令：iexplore -k，老师监控你还可以玩浏览器咯！]]></content>
+      <categories>
+        <category>信息技术</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浅谈母函数]]></title>
+    <url>%2F2018%2F11%2F10%2FGenerating-function%2F</url>
+    <content type="text"><![CDATA[一、定义对于数列：$a_0,a_1,a_2,…,a_n$，设$G(x)=a_0+a_1x+a_2x^2+…+a_nx^n$，则称$G(x)$是该数列的生成函数，也叫母函数。 普通型：$G(a_n;x)=\sum_{n=0}^{\infty }a_nx^n$ 指数型：$EG(a_n;x)=\sum_{n=0}^{\infty }a_n\frac {x^n}{n!}$ 二、计算 加减：F(x)\pm G(x) \leftrightarrow 乘常数：c\times G(x) \leftrightarrow 乘幂：$x^k\times G(x)\leftrightarrow $ （前面有$k$个0） 两母函数相乘：$F(x)\times G(x)$跑FFT搞多项式乘法 求导：G'(x) \leftrightarrow 三、应用1、已知数列递推式，求通项公式和特征方程类似，此处不再赘述。2、解决组合问题3、一些奇思妙想四、例子1、有一些水果，只能拿3的倍数个苹果，只能拿质数个草莓。问对于每个$0&lt;i&lt;=n$，有多少种方案使得恰好拿$i$个水果。不妨先构造两个布尔数组（第i个数为0表示不能拿i个，反之能拿）： 12苹果-[0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1...] 草莓-[0,0,1,1,0,1,0,1,0,0,0,1,0,1,0,0...] 用上面两个数组构造母函数：苹果-$Apple(x)=x^3+x^6+x^9+…$草莓-$Straw(x)=x^2+x^3+x^5+x^7+…$将两个式子相乘，发现$x^k$的系数正好表示取$k$个苹果或草莓的方案数（强烈建议自己动手推，当然前提是得会极限思想等）。以$x^4$为例，显然$x^4=x^{0} \times x^4=x^1\times x^3=x^2\times x^2=x^{3} \times x^1=x^4\times x^0$，且没有其他拆分方案。这显然可以表示0个苹果+4个草莓，1个苹果+3个草莓……这些选取方案。根据FFT，可以在$O(n log n)$的时间里求出答案，直接输出卷积即可。 2、从只有4个女装大佬的队伍中选出$n$个女装大佬的方案数。有点组合基础的就能发现，显然是$\binom{n}{4}$。从n=0开始枚举，显然答案为：1,4,6,4,1。求其生成函数，易得$G(x)=1+4x+6x^2+4x^3+x^4$。有没有发现序列$1,4,6,4,1$非常熟悉？这不就是二项式展开嘛！于是$G(x)=(1+x)^4$。 3、求$n=x_1+x_2+x_3+…+x_k$有多少非负整数解。将每个$x_i$都增加1，则有$n+k=x_1+x_2+x_3+…+x_k$。考虑隔板法：把$n+k$个数排成一排，在$n+k-1$个空格中插入$k-1$个隔板，方案数为$\binom{k-1}{n+k-1}=\binom{n}{n+k-1}$，关于$n$的生成函数是$G(x)=\frac {1}{(1-x)^k}=(1-x)^{-k}$。简单证明下：用牛顿二项式定理可得$x^n$的系数是$\binom{n}{n+k-1}$。换用生成函数来解释：由$1+x+x^2+x^3+x^4+…=\frac {1}{1-x}$可得$(1+x+x^2+x^3+x^4+…)^k=\frac {1}{(1-x)^k}$，显然展开之后$n$次项的系数就是答案。]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+        <tag>生成函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[从取石子游戏谈博弈论入门]]></title>
+    <url>%2F2018%2F11%2F09%2Fstone-games%2F</url>
+    <content type="text"><![CDATA[【一】 Alice和Bob要从2堆石子里取石子，每一回合玩家可以从一堆里取出1个，也可以两堆都取出一个，没有石子者失败。若Bob先手，他是否有必胜策略？ 【二】 用(x,y)表示当前状态：第一堆有x个，第二堆有y个。 显然游戏没有和局的情况，那么对于每个点，要么必胜，要么必败。 首先易得(0,0)是必败点，这似乎没有必要证明什么。 又：可以一步走到必败点的，一定是必胜点（即使对手面临必败点）； 所以(0,1)和(1,0)是必胜点。 又：一步只能到达必胜点的是必败点（对手会使自己到达必败点）： 对于(0,1)，显然(0,2)只能走到(0,1)，所以(0,2)是必败点。而$(0,3)$可以走到$(0,2)$使对方必败，所以$(0,3)$是必胜点。以此类推有$(0,2k)$是必败点，$(0,2k+1)$是必胜点。 若要使对手面临$(0,2k)$，显然$(1,2k+1)$和$(1,2k)$均能一步走到，故这2个点都是必胜点，即$(1,0)$到$(1,∞)$都是必胜点。 因为$(2,2)$只能走到$(1,k)$，所以$(2,2)$必败，则$(2,3)$$(3,3)$必胜。同理$(2,4)$必败，则$(3,4)$必胜。 再次推广，可得： $(2k,2k)$必败 $(2k,2k+1)$必胜 $(2k+1,2k)$必胜 $(2k+1,2k+1)$必胜 【三】 Alice和Bob要从3堆石子里取石子，每一回合玩家可以从某堆里取出任意个，没有石子者失败。若Bob先手，他是否有必胜策略？ 【四】 一个我并不会证明的结论： 仍然设$(x,y,z)$表示状态，当且仅当：x xor y xor z=0是必败点，否则是必胜点。 推广一下： 有n堆石子，当且仅当：a xor b xor c xor d xor ...=0是必败点，否则是必胜点。 （上文中的xor表示异或运算)]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+        <tag>博弈论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[简析特征方程]]></title>
+    <url>%2F2018%2F11%2F07%2Fcharacteristic-equation%2F</url>
+    <content type="text"><![CDATA[【前言】 如果要求斐波那契数列的第$10^{12}$项（不考虑数值的溢出），使用$f(n)=f(n-1)+f(n-2)$显然已经不够了，矩阵乘法优化是不错的选择。但如果要求第$10^{10^{12}}$项，矩阵乘法也已经无能为力。这时候就需要$f(n)$的通项公式：$f(n)=\frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{5}}{2})^{n}]$，结合快速幂求解了。 考场上不可能正好出斐波那契数列，就算出了也可能记不得通项式子。毛主席说，自己动手，丰衣足食。我们更应该学会自己推导通项公式。 【一】 先举个初中一定会学到的例子：求$f(n)=2^0+2^1+…+2^{n}$的通项公式。初中老师会说，$2f(n)=2^1+…+2^{n+1}$，则两式相减可得$f(n)=2^{n+1}-1$。 我们换一种思路：设$f(n)=pf(n-1)+q$，若有$t$满足$f(n)-t=p[f(n-1)-t]$，则有$f(n)=pf(n-1)+t-pt$，与所设的式子比较可得$q=t-pt$。对于我们给出的例子，显然前5项依次是：$1,3,7,15,31$，则有$f(n)=2f(n-1)+1$，所以p=2,q=1，于是t=-1。可得$f(n)+1=2[f(n-1)+1]$。令$g(n)=f(n)+1$，则$g(n)=2g(n-1)$且$g(1)=2$，易得$g(n)=2^{n+1}$，故$f(n)=g(n)-1=2^{n+1}-1$。 【二】 在上一部分中，我们了解了$f(n)$可以用$f(n-1)$和常数表示时，通项公式的求法。但是很多问题里（例如斐波那契数列）$f(n)$必须用$f(n-1)$和$f(n-2)$表示（不能带常数）。我们先看一个比较简单的例子：$f(n)=5f(n-1)-6f(n-2)$。不难看出，若$f(n)=2^{n}$，则显然满足条件。证明是显然的，把$2^{n}$带进去合并同类项然后约分即可。 我们还可以发现，$f(n)=2^{n+1}$也满足这个条件！同理，$f(n)=2^{n-1}$或者其他次方，只要是关于n的一次函数（系数为1）即可。观察到$2^n$是等比数列，也可以说$f(n)$满足条件时$\alpha f(n)$也满足（$\alpha$为常数），证明也很简单，直接约掉就好。 实际上，$f(n)=3^{n}$也是满足条件的（但不要想当然地认为$f(n)=4^n$也满足）。 【三】 再来一个更强的结论：若等比数列$g(n)$和$h(n)$都满足$f(n)$的递推式，那么$\alpha g(n)+\beta h(n)$也满足（$\alpha$和$\beta$为常数）。 这个式子的证明当然是显然的。 【四】 我们知道了$2^n$和$3^n$都满足原递推式$f(n)=5f(n-1)-6f(n-2)$，那么能不能通过给$2^n$和$3^n$配上合理的系数，凑出$f(n)$的通项公式呢？为了计算方便，我们给定$f(1)=8$，$f(2)=22$。 不妨令$f(n)=\alpha 2^n+\beta 3^n$，将$n=1$和$n=2$代入可以得到一个方程组，解得$\alpha =1$，$\beta =2$。算出前几项检验下，显然是正确的。 【五】 根据上面的推导我们知道，如果已知2个等比数列满足$f(n)$的递推式，我们就一定可以通过$f(n)$的两个特殊值列方程组，求出其通项公式。但是如何求出满足条件的等比数列呢？ 不妨假设满足条件等比数列的公比为$ \lambda $，则有\lambda ^2 f(n-2)=5\lambda f(n-2)-6f(n-2) ，约掉$f(n-2)$得。解方程，易得\lambda =2或$3$。 【六】 实际上，\lambda ^2=5\lambda -6就是递推式$f(n)=5f(n-1)-6f(n-2)$的特征方程。 推广一下，递推式$f(n)=\alpha f(n-1)+\beta f(n-2)$的特征方程就是$\lambda ^2=\alpha \lambda +\beta$。换句话说，就是用1代替$f(n-2)$，\lambda代替$f(n-1)$，\lambda ^2代替$f(n)$。解出来的\lambda就是满足递推式的等比数列，然后列方程即可。 再次推广，如果$f(n)$用$f(n-1)$到$f(n-x)$表示，那么用1代替$f(n-x)$，\lambda代替$f(n-x+1)$……直到\lambda表示$f(n)$。 【七】 回到开头的问题：求斐波那契数列即$f(n)=f(n-1)+f(n-2)$的通项公式。 列出特征方程：\lambda ^2=\lambda +1 解得\lambda _1=\frac {1-\sqrt 5} {2}，\lambda _2=\frac {1+\sqrt 5} {2} 设f(n)=\alpha {\lambda _1} ^{n-1} + \beta {\lambda _2} ^ {n-1} 又$f(1)=1$，$f(2)=1$ 可得$\left\{\begin{matrix} \alpha + \beta =1 &amp; &amp; \ \frac{1-\sqrt5}{2}\alpha +\frac {1+\sqrt5}{2}\beta =1 &amp; &amp; \end{matrix}\right.$ 解得\left\{\begin{matrix} \alpha =\frac {5-\sqrt 5}{2}\\ \beta =\frac {5+\sqrt 5}{2} \end{matrix}\right. 代入原式并整理，得$f(n)=\frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{5}}{2})^{n}]$。]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+        <tag>数列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何搭建github.io博客]]></title>
+    <url>%2F2018%2F11%2F06%2FI-m-JRX2015U43%2F</url>
+    <content type="text"><![CDATA[一、注册一个账号 进入www.github.com ，然后注册。 首页右上角头像那里有一个“+”号，点击后选择“New repositor”。 创建完之后点击“Settings”并找到“GitHub Pages”一栏，可以从后往前找。 看上面那个图，有个“Choose a theme”点进去，随便选个自己喜欢的主题。 这些做完之后保存，刷新，等待一会儿（10min差不多，别指望立马就能看到），在地址栏输入： username.github.io （username为你注册时候写的名字，即你的用户名）即可看到你的博客。当然，你还不能对它进行编辑。 二、搭建Hexo 下载并安装2个软件：Node.js（下载）和Git（下载），一路next即可。Node.js的安装可以参考这篇文章。 在你想安装Hexo的地方新建一个文件夹，然后右键单击，点击“Git Bash Here”（因为安装的软件版本不同和操作系统不同，这里出现的字可能会有些差异，只要大体符合即可）。 输入以下代码： 12345npm install hexo-cli -ghexo initnpm installhexo ghexo s 所有操作成功完成后，地址栏输入： http://localhost:4000 即可查看了。hexo的详细语法点这里。 如果想换个主题，输入以下代码（以安装yilia主题为示例，更多主题点我： 1234567hexo clean #如果是安装第2个主题就不要写这句git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia#现在找到_config.yml中的theme属性，改成yiliacd themes/yiliagit pullhexo ghexo s 三、将Hexo部署到Github 找到根目录下一个叫“_config.yml ”的东东并打开它，翻到最后，添加以下代码并保存。 1234deploy: type: git #到"type"都是原来有的，添加后面的即可 repo: git@github.com:name/name.github.io.git #这里的"name"填你自己的 branch: master 在Git Bash输入以下代码。 12345678910npm install hexo-deployer-git --savecd ~/.sshls #此时会显示一些文件mkdir key_backupcp id_rsa* key_backuprm id_rsa* #以上三步为备份和移除原来的SSH key设置ssh-keygen -t rsa -C "邮件地址@youremail.com" #生成新的key文件,邮箱地址填你的Github地址#Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好，当然也可以输入自己喜欢的名字&gt;#接下来会让你输入密码，然后会确认一遍，如果是Linux可能是隐形字#上面的操作都成功之后会出现一个图，画的很拙劣，是表示OK了 进入Github首页，右上角头像旁边有个三角形，打开，里面有个“Settings”，点击“SSH and GPG keys”，再点击“New SSH key”。 资源管理器里打开：C:\Users\用户名 .ssh id_rsa.pub （注意.ssh文件夹是隐藏的，然后如果上面回车的地方你输入了什么（比方说输入了jrx，那么就打开jrx.pub）。 将上面打开的文件全部复制下来，详情见下图。 测试下是否成功连接（最好先等10min），输入以下代码： 1ssh -T git@github.com 然后会让你输入yes/no，显然输入yes咯。 之后会提示你设置账号和密码，输入以下代码： 12git config --global user.name "balabala" #自己的名字，不一定非要是用户名git config --global user.email "mail@mail.com" #github注册使用的邮箱 如果这些输入完之后提示了“Welcome”之类的话，恭喜你，你已经成功了95%！如果提示错误了，请根据提示自行百度。 最后一步咯，输入以下代码： 1hexo d 然后等待10min~2hour不等，访问：yourname.github.io （yourname自己修改）即可发现自己的博客可以访问了！ 四、如何更新博客 有一个非常优秀的在线Markdown编辑工具：Prose，可以用Github登陆并在线添加文件。 也可以下载一个叫Typora的软件，本地写好之后传上去。 更新完之后，输入以下代码即可。 12hexo ghexo d 五、如何使博客支持LaTeX 安装Kramed 12npm uninstall hexo-renderer-marked --savenpm install hexo-renderer-kramed --save 打开/node_modules/hexo-renderer-kramed/lib/renderer.js，找到函数function formatText(text)，将其改成以下代码（可以把原来的注释掉）： 123function formatText(text) &#123; return text;&#125; 安装mathjax 12npm uninstall hexo-math --savenpm install hexo-renderer-mathjax --save 打开node_modules/hexo-renderer-mathjax/mathjax.html，将原来的script注释掉，改成这个： 1&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"&gt;&lt;/script&gt; 打开node_modules\kramed\lib\rules\inline.js，改2个地方： 1234原：escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,现：escape: /^\\([`*\[\]()# +\-.!_&gt;])/,原：em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,现：em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/, 打开themes/yilia/config.yml（这里将yilia自行改成自己用的主题）添加或修改代码： 1mathjax: true 写新博客的时候加上一句“mathjax: true”，例如： 1234title: 导数：你的能量，超乎你的想象！date: -2333-2-31 23:59:60tags: [jrx is a sb]mathjax: true 友情提示：如果写了LaTeX之后刷新，发现整篇文章都没了，把单个$改成2个$是个不错的办法，例如$1=1=3$改成$$ 1+1=3 $$]]></content>
+      <categories>
+        <category>信息技术</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>Hexo</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+</search>

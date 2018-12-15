@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>从取石子游戏谈博弈论入门 | jrxjs的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="JRX2015U43,RuixiangJiang,JRX2015U43's Blog,jrxjs">
+  
+  <meta name="description" content="【一】 Alice和Bob要从2堆石子里取石子，每一回合玩家可以从一堆里取出1个，也可以两堆都取出一个，没有石子者失败。若Bob先手，他是否有必胜策略？">
+<meta name="keywords" content="数论,博弈论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从取石子游戏谈博弈论入门">
+<meta property="og:url" content="https://ruixiangjiang.github.io/2018/11/09/stone-games/index.html">
+<meta property="og:site_name" content="jrxjs的博客">
+<meta property="og:description" content="【一】 Alice和Bob要从2堆石子里取石子，每一回合玩家可以从一堆里取出1个，也可以两堆都取出一个，没有石子者失败。若Bob先手，他是否有必胜策略？">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-23T23:36:57.707Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从取石子游戏谈博弈论入门">
+<meta name="twitter:description" content="【一】 Alice和Bob要从2堆石子里取石子，每一回合玩家可以从一堆里取出1个，也可以两堆都取出一个，没有石子者失败。若Bob先手，他是否有必胜策略？">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">jrxjs&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章列表</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于作者</span>
+                    </a>
+                    
+                    <a href="/book">
+                        <i class="fa fa-book"></i>
+                        <span>文献资料</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        jrxjs&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        自己选择的路，跪着也要走完！
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="My homepage" target="_blank" href="//www.jrxjs.gq">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="渡" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2037358823&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="RuixiangJiang" target="_blank" href="//github.com/RuixiangJiang">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="JRX2015U43" target="_blank" href="//plus.google.com/u/0/108939226830271187693?tab=wX">
+                            <i class="fa fa-google fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-stone-games" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      从取石子游戏谈博弈论入门
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数学/">数学</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-09
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+		
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <script src="/assets/js/APlayer.min.js"> </script><p>【一】</p>
+<p>Alice和Bob要从2堆石子里取石子，每一回合玩家可以从一堆里取出1个，也可以两堆都取出一个，没有石子者失败。若Bob先手，他是否有必胜策略？</p>
+<a id="more"></a>
+<p>【二】</p>
+<p>用<script type="math/tex">(x,y)</script>表示当前状态：第一堆有<script type="math/tex">x</script>个，第二堆有<script type="math/tex">y</script>个。</p>
+<p>显然游戏没有和局的情况，那么对于每个点，要么必胜，要么必败。</p>
+<p>首先易得<script type="math/tex">(0,0)</script>是必败点，这似乎没有必要证明什么。</p>
+<p>又：可以一步走到必败点的，一定是必胜点（即使对手面临必败点）；</p>
+<p>所以<script type="math/tex">(0,1)</script>和<script type="math/tex">(1,0)</script>是必胜点。</p>
+<p>又：一步<strong>只能</strong>到达必胜点的是必败点（对手会使自己到达必败点）：</p>
+<p>对于<script type="math/tex">(0,1)</script>，显然<script type="math/tex">(0,2)</script>只能走到<script type="math/tex">(0,1)</script>，所以<script type="math/tex">(0,2)</script>是必败点。而$(0,3)$可以走到$(0,2)$使对方必败，所以$(0,3)$是必胜点。以此类推有$(0,2k)$是必败点，$(0,2k+1)$是必胜点。</p>
+<p>若要使对手面临$(0,2k)$，显然$(1,2k+1)$和$(1,2k)$均能一步走到，故这2个点都是必胜点，即$(1,0)$到$(1,∞)$都是必胜点。</p>
+<p>因为$(2,2)$只能走到$(1,k)$，所以$(2,2)$必败，则$(2,3)$$(3,3)$必胜。同理$(2,4)$必败，则$(3,4)$必胜。</p>
+<p>再次推广，可得：</p>
+<ul>
+<li>$(2k,2k)$必败</li>
+<li>$(2k,2k+1)$必胜</li>
+<li>$(2k+1,2k)$必胜</li>
+<li>$(2k+1,2k+1)$必胜</li>
+</ul>
+<p>【三】</p>
+<p>Alice和Bob要从3堆石子里取石子，每一回合玩家可以从某堆里取出任意个，没有石子者失败。若Bob先手，他是否有必胜策略？</p>
+<p>【四】</p>
+<p>一个我并不会证明的结论：</p>
+<p>仍然设$(x,y,z)$表示状态，当且仅当：<code>x xor y xor z=0</code>是必败点，否则是必胜点。</p>
+<p>推广一下：</p>
+<p>有n堆石子，当且仅当：<code>a xor b xor c xor d xor ...=0</code>是必败点，否则是必胜点。</p>
+<p>（上文中的xor表示<a href="https://baike.baidu.com/item/%E5%BC%82%E6%88%96/10993677?fr=aladdin" target="_blank" rel="noopener">异或</a>运算)</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月24日 07:36</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/09/stone-games/" title="从取石子游戏谈博弈论入门">https://ruixiangjiang.github.io/2018/11/09/stone-games/</a></p>
+        <footer>
+            <a href="https://ruixiangjiang.github.io">
+                <img src="/images/logo.png" alt="RuixiangJiang">
+                RuixiangJiang
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ruixiangjiang.github.io/2018/11/09/stone-games/&title=《从取石子游戏谈博弈论入门》 — jrxjs的博客&pic=https://ruixiangjiang.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ruixiangjiang.github.io/2018/11/09/stone-games/&title=《从取石子游戏谈博弈论入门》 — jrxjs的博客&source=【一】
+Alice和Bob要从2堆石子里取石子，每一回合玩家可以从一堆里取出1个，也可以两堆都取出一个，没有石子者失败。若Bob先手，他是否有必胜策略？" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ruixiangjiang.github.io/2018/11/09/stone-games/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从取石子游戏谈博弈论入门》 — jrxjs的博客&url=https://ruixiangjiang.github.io/2018/11/09/stone-games/&via=https://ruixiangjiang.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ruixiangjiang.github.io/2018/11/09/stone-games/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aQW6DQAwF0Nz/0um2Ugp826QSM48VUoDMI5Ljsf16xce7dfy+9/NpR+ef1992YGBgPJaRLyX/NLnrfA352jAwMPZhHD36/PwoUOZhNLn3fG0YGBgY1UdPgm+SVmJgYGAkjOTe/Mrz0IyBgYFR3cSef1kecOdhGgMDYzdGNVz+5/lX+hsYGBiPYvRakr3GZL7E8qowMDCWZvQendzVSy4n68HAwFiV0RuDyNuZveZlEtyjSQ0MDIzlGNVCfB4WkxeXD5ldBFwMDIylGdUhsKQNmZfyk8GLw+sxMDA2YFQDYrQzru6k47TysGqIgYGxJSMv0+djXpNN7OFrwsDA2IaRp4PVT3utgqQg+EfAxcDAWI5RTft64xd5a2EUmjEwMJZmVLOspIifl+HmgRsDA2MfRr6BnCzirhmJUSUPAwPj4YxJgtgrruX/BtH1GBgYyzEmyVx1gKyHbwZZDAyM5RjVoJlsX/OGaBLcL/4YMDAwlmb02oeT9K63QY3CPQYGxgaM6lLexaPaYKhuazEwMPZkVAtk95bSys0GDAyMDRiTJC9J3arBtArGwMBYlTFJ76ptg3lJLvodMDAwlmNMuoTfSBCraWIZg4GB8VhGL4CWM9Dihrb8vjEwMDZgVANfMlKWJ3+914SBgYFxb+icf3rxjRgYGBjFAJqker3BjotNLAYGxtKMvBkwB39j1AMDA2NtxryINm8S9AI6BgbGBowf+L2yUGAsm/kAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数论/" class="color3">数论</a>
+      
+    <a href="/tags/博弈论/" class="color4">博弈论</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/10/Generating-function/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          浅谈母函数
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/07/characteristic-equation/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">简析特征方程</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTQzOS8xNzk4Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 RuixiangJiang<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://ruixiangjiang.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/信息技术/">信息技术</a><a class="category-link" href="/categories/数学/">数学</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章列表</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于作者</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/book">
+                    <i class="fa fa-book"></i><span>文献资料</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

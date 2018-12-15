@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>错位排列问题 | jrxjs的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="JRX2015U43,RuixiangJiang,JRX2015U43's Blog,jrxjs">
+  
+  <meta name="description" content="一、递推式推导考虑问题：有 $n$ 个箱子，颜色分别为 $1…n$；还有 $n$ 个球，颜色也分别为 $1…n$。现在要将每一个球分别放入一个箱子里，并且每个箱子和它里面球的颜色都不一样 ，求方案数。">
+<meta name="keywords" content="数论,数列,排列组合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="错位排列问题">
+<meta property="og:url" content="https://ruixiangjiang.github.io/2018/11/16/Disorderly-arrangement/index.html">
+<meta property="og:site_name" content="jrxjs的博客">
+<meta property="og:description" content="一、递推式推导考虑问题：有 $n$ 个箱子，颜色分别为 $1…n$；还有 $n$ 个球，颜色也分别为 $1…n$。现在要将每一个球分别放入一个箱子里，并且每个箱子和它里面球的颜色都不一样 ，求方案数。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-23T23:35:53.306Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="错位排列问题">
+<meta name="twitter:description" content="一、递推式推导考虑问题：有 $n$ 个箱子，颜色分别为 $1…n$；还有 $n$ 个球，颜色也分别为 $1…n$。现在要将每一个球分别放入一个箱子里，并且每个箱子和它里面球的颜色都不一样 ，求方案数。">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">jrxjs&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章列表</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于作者</span>
+                    </a>
+                    
+                    <a href="/book">
+                        <i class="fa fa-book"></i>
+                        <span>文献资料</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        jrxjs&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        自己选择的路，跪着也要走完！
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="My homepage" target="_blank" href="//www.jrxjs.gq">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="渡" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2037358823&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="RuixiangJiang" target="_blank" href="//github.com/RuixiangJiang">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="JRX2015U43" target="_blank" href="//plus.google.com/u/0/108939226830271187693?tab=wX">
+                            <i class="fa fa-google fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Disorderly-arrangement" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      错位排列问题
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数学/">数学</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-16
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+		
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <script src="/assets/js/APlayer.min.js"> </script><h3 id="一、递推式推导"><a href="#一、递推式推导" class="headerlink" title="一、递推式推导"></a>一、递推式推导</h3><p>考虑问题：有 $n$ 个箱子，颜色分别为 $1…n$；还有 $n$ 个球，颜色也分别为 $1…n$。现在要将每一个球分别放入一个箱子里，并且每个箱子和它里面球的颜色都不一样 ，求方案数。</p>
+<a id="more"></a>
+<p>设 $D_n$ 表示方案数。对第$n$个球有 $n-1$ 种情况：$n$号球分别放进$1$号，$2$号，……，$n-1$号箱子。</p>
+<p>考虑将第$n$个球放进第$k$个箱子，那么对于第$k$个球，又有两种情况：在或不在第$n$个箱子。</p>
+<p>若在，即是将剩下$n-2$个球按上述原则继续排列，方案显然有$D_{n-2}$种。</p>
+<p>若不在，则问题变成：第$1$个球不在$1$号箱，……，第$k-1$个球不在$k-1$号箱，第$k+1$个球不在$k+1$号箱，……，第$n-1$个球不在$n-1$号箱，第$k$个球不在$n$号箱。可以发现，这就是把第$n$个球扔掉再排列，显然方案有$D_{n-1}$种。</p>
+<p>而$k$又有$n-1$种取值，所以有$D_n=(n-1)(D_{n-1}+D_{n-2})$。</p>
+<h3 id="二、由递推式推导通项式"><a href="#二、由递推式推导通项式" class="headerlink" title="二、由递推式推导通项式"></a>二、由递推式推导通项式</h3><p>设$D_n=n!\times M_n$，易得$M_1=0$，$M_2=\frac {1}{2}$。<br>当$n\geqslant 3$时，由$D_n=(n-1)(D_{n-1}+D_{n-2})$，<br>得$n!M_n=(n-1)\times (n-1)!M_{n-1}+(n-1)\times (n-2)!M_{n-2}=n!M_{n-1}-(n-1)!M_{n-1}+(n-1)!M_{n-2}$<br>约掉$(n-1)!$并移项，<br>得$nM_n-nM_{n-1}=-M_{n-1}+M_{n-2}$<br>再约掉$n$并变形，<br>得$M_n-M_{n-1}=-\frac {1}{n}(M_{n-1}-M_{n-2})$<br>不断迭代可得$M_n-M_{n-1}=(-\frac {1}{n})(-\frac {1}{n-1})…(-\frac {1}{3})(M_2-M_1)=(-1)^n \frac {1}{n!}$<br>列出$M_i-M_{i-1}(1&lt;i\leqslant n)$并累加，<br>得$M_n=(-1)^2\frac {1}{2!}+(-1)^3\frac {1}{3!}+…+(-1)^n\frac {1}{n!}$<br>所以$D_n=n!M_n=n!(\frac {1}{2!}-\frac {1}{3!}+…+(-1)^n\frac {1}{n!})$</p>
+<h3 id="三、由容斥原理推导通项式"><a href="#三、由容斥原理推导通项式" class="headerlink" title="三、由容斥原理推导通项式"></a>三、由容斥原理推导通项式</h3><p>显然数列$\left \{ 1,2,3,…,n \right \}$的全排列有$n!$种，其中确定第$k$位是$k$的有$(n-1)!$种，所以需要减去这些；但是这样又把同时有两个数不错排的排列多排除了一次，所以需要加上；但是这样又把同时有三个数不错排的排列多加上了一次，所以需要减去……<br>于是得$D_n=n!-\frac {n!}{1!}+\frac {n!}{2!}-\frac {n!}{3!}+…+(-1)^n\frac {n!}{n!}=n!(\frac {1}{2!}-\frac {1}{3!}+…+(-1)^n\frac {1}{n!})$</p>
+<h3 id="四、常用推论"><a href="#四、常用推论" class="headerlink" title="四、常用推论"></a>四、常用推论</h3><ul>
+<li>简化通项式：$D_n=\left \lfloor \frac {n!}{e}+\frac {1}{2} \right \rfloor$</li>
+<li>另一种递推式：$D_n=nD_{n-1}+(-1)^n$</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月24日 07:35</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/16/Disorderly-arrangement/" title="错位排列问题">https://ruixiangjiang.github.io/2018/11/16/Disorderly-arrangement/</a></p>
+        <footer>
+            <a href="https://ruixiangjiang.github.io">
+                <img src="/images/logo.png" alt="RuixiangJiang">
+                RuixiangJiang
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ruixiangjiang.github.io/2018/11/16/Disorderly-arrangement/&title=《错位排列问题》 — jrxjs的博客&pic=https://ruixiangjiang.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ruixiangjiang.github.io/2018/11/16/Disorderly-arrangement/&title=《错位排列问题》 — jrxjs的博客&source=一、递推式推导考虑问题：有 $n$ 个箱子，颜色分别为 $1…n$；还有 $n$ 个球，颜色也分别为 $1…n$。现在要将每一个球分别放入一个箱子里，并且..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ruixiangjiang.github.io/2018/11/16/Disorderly-arrangement/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《错位排列问题》 — jrxjs的博客&url=https://ruixiangjiang.github.io/2018/11/16/Disorderly-arrangement/&via=https://ruixiangjiang.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ruixiangjiang.github.io/2018/11/16/Disorderly-arrangement/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3awW4bMQwEUP//T6fXBqmdGVJyUuDtyUi9W70NIDFDPh7x9fHXlf/k689f35V883HjwsPDw1ssPV/Es+ckL2XzivM14+Hh4d3mJY9rH50fJ/nRkq8ZDw8P7zfzkhL89TOTleDh4eH9v7z9gvLPyTfx8PDwforXRqibYnp/zFzJWvDw8PBi3ixC/dnPV/p7eHh4eOuuenJIzNr8SUgxGzL4dBceHh7eBV6+4c5K4XzoKr+3XSceHh7eWd7+j/x8i2/L5Xbs4B9rwMPDw7vGawvf9pDYFNCbUS08PDy89/NmW39bEG/ihmMxBB4eHl7JS8rZItsYNdU233z6r3h4eHgXeJtue/6CTt3VHiR4eHh47+Elg1Z5zNoOVM1K/NVIFh4eHl7JK5pJZQsqj3fbA6P4X/Dw8PAu8NoWVBLsbkKNx+j65l48PDy8C7xZ4XvqkGhfzewXgIeHh3eKtxmcmoWqZwv3KJPGw8PDu8bL22Azdtv6msUQ0UwZHh4e3oL3eqHtoGq7lbfl+Cr+wMPDwzvKuzHYlGzos7CjPkLw8PDwjvL2Eer+RDoVPUS/Nzw8PLw1L+m255v4fhRg9rS2QMfDw8Pb8DZLzLfvU+Nc9V14eHh4F3j7wnoTBLcNrdlP8PDw8G7z2qHVvIDe582zQBkPDw/vnbwkPM3DhdmgajuIUBwMeHh4eGteslnPgokZu32J33T58PDw8A7xPsoriQDywrcdBcif9jSlxsPDw1vzzjb186I5H0TYfMbDw8O7x2tL6nbwdH/krA4GPDw8vGu8TeeobWXlsUUbRgyTEjw8PLzLvOQAyF/ErFAuog08PDy8X8CbHRvtK9uMI+Dh4eG9h7dverWRRDE4VUYeeHh4eLd5s8GmfNNvD4y28XbgwsPDw0t5fwCeXX2C5S1BZgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数论/" class="color3">数论</a>
+      
+    <a href="/tags/数列/" class="color3">数列</a>
+      
+    <a href="/tags/排列组合/" class="color5">排列组合</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、递推式推导"><span class="post-toc-text">一、递推式推导</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、由递推式推导通项式"><span class="post-toc-text">二、由递推式推导通项式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、由容斥原理推导通项式"><span class="post-toc-text">三、由容斥原理推导通项式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、常用推论"><span class="post-toc-text">四、常用推论</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/12/04/构造对偶/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          构造对偶
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/13/Topdamain/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">如何破解极域电子教室</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTQzOS8xNzk4Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 RuixiangJiang<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://ruixiangjiang.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/信息技术/">信息技术</a><a class="category-link" href="/categories/数学/">数学</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章列表</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于作者</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/book">
+                    <i class="fa fa-book"></i><span>文献资料</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

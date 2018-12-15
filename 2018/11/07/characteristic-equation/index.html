@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>简析特征方程 | jrxjs的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="JRX2015U43,RuixiangJiang,JRX2015U43's Blog,jrxjs">
+  
+  <meta name="description" content="【前言】 如果要求斐波那契数列的第$10^{12}$项（不考虑数值的溢出），使用$f(n)=f(n-1)+f(n-2)$显然已经不够了，矩阵乘法优化是不错的选择。但如果要求第$10^{10^{12}}$项，矩阵乘法也已经无能为力。这时候就需要$f(n)$的通项公式：$f(n)=\frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{">
+<meta name="keywords" content="数论,数列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简析特征方程">
+<meta property="og:url" content="https://ruixiangjiang.github.io/2018/11/07/characteristic-equation/index.html">
+<meta property="og:site_name" content="jrxjs的博客">
+<meta property="og:description" content="【前言】 如果要求斐波那契数列的第$10^{12}$项（不考虑数值的溢出），使用$f(n)=f(n-1)+f(n-2)$显然已经不够了，矩阵乘法优化是不错的选择。但如果要求第$10^{10^{12}}$项，矩阵乘法也已经无能为力。这时候就需要$f(n)$的通项公式：$f(n)=\frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-23T23:36:13.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简析特征方程">
+<meta name="twitter:description" content="【前言】 如果要求斐波那契数列的第$10^{12}$项（不考虑数值的溢出），使用$f(n)=f(n-1)+f(n-2)$显然已经不够了，矩阵乘法优化是不错的选择。但如果要求第$10^{10^{12}}$项，矩阵乘法也已经无能为力。这时候就需要$f(n)$的通项公式：$f(n)=\frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">jrxjs&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章列表</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于作者</span>
+                    </a>
+                    
+                    <a href="/book">
+                        <i class="fa fa-book"></i>
+                        <span>文献资料</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        jrxjs&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        自己选择的路，跪着也要走完！
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="My homepage" target="_blank" href="//www.jrxjs.gq">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="渡" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2037358823&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="RuixiangJiang" target="_blank" href="//github.com/RuixiangJiang">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="JRX2015U43" target="_blank" href="//plus.google.com/u/0/108939226830271187693?tab=wX">
+                            <i class="fa fa-google fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-characteristic-equation" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      简析特征方程
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数学/">数学</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-07
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+		
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <script src="/assets/js/APlayer.min.js"> </script><p>【前言】</p>
+<p>如果要求斐波那契数列的第$10^{12}$项（不考虑数值的溢出），使用$f(n)=f(n-1)+f(n-2)$显然已经不够了，矩阵乘法优化是不错的选择。但如果要求第$10^{10^{12}}$项，矩阵乘法也已经无能为力。这时候就需要$f(n)$的通项公式：$f(n)=\frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{5}}{2})^{n}]$，结合快速幂求解了。</p>
+<p>考场上不可能正好出斐波那契数列，就算出了也可能记不得通项式子。毛主席说，自己动手，丰衣足食。我们更应该学会自己推导通项公式。</p>
+<a id="more"></a>
+<p>【一】</p>
+<p>先举个初中一定会学到的例子：求$f(n)=2^0+2^1+…+2^{n}$的通项公式。初中老师会说，$2f(n)=2^1+…+2^{n+1}$，则两式相减可得$f(n)=2^{n+1}-1$。</p>
+<p>我们换一种思路：设$f(n)=pf(n-1)+q$，若有$t$满足$f(n)-t=p[f(n-1)-t]$，则有$f(n)=pf(n-1)+t-pt$，与所设的式子比较可得$q=t-pt$。对于我们给出的例子，显然前5项依次是：$1,3,7,15,31$，则有$f(n)=2f(n-1)+1$，所以<script type="math/tex">p=2,q=1</script>，于是<script type="math/tex">t=-1</script>。可得$f(n)+1=2[f(n-1)+1]$。令$g(n)=f(n)+1$，则$g(n)=2g(n-1)$且$g(1)=2$，易得$g(n)=2^{n+1}$，故$f(n)=g(n)-1=2^{n+1}-1$。</p>
+<p>【二】</p>
+<p>在上一部分中，我们了解了$f(n)$可以用$f(n-1)$和常数表示时，通项公式的求法。但是很多问题里（例如斐波那契数列）$f(n)$必须用$f(n-1)$和$f(n-2)$表示（不能带常数）。我们先看一个比较简单的例子：$f(n)=5f(n-1)-6f(n-2)$。<br>不难看出，若$f(n)=2^{n}$，则显然满足条件。证明是显然的，把$2^{n}$带进去合并同类项然后约分即可。</p>
+<p>我们还可以发现，$f(n)=2^{n+1}$也满足这个条件！同理，$f(n)=2^{n-1}$或者其他次方，只要是关于n的一次函数（系数为1）即可。观察到$2^n$是等比数列，也可以说$f(n)$满足条件时$\alpha f(n)$也满足（$\alpha$为常数），证明也很简单，直接约掉就好。</p>
+<p>实际上，$f(n)=3^{n}$也是满足条件的（但不要想当然地认为$f(n)=4^n$也满足）。</p>
+<p>【三】</p>
+<p>再来一个更强的结论：若等比数列$g(n)$和$h(n)$都满足$f(n)$的递推式，那么$\alpha g(n)+\beta h(n)$也满足（$\alpha$和$\beta$为常数）。</p>
+<p>这个式子的证明当然是显然的。</p>
+<p>【四】</p>
+<p>我们知道了$2^n$和$3^n$都满足原递推式$f(n)=5f(n-1)-6f(n-2)$，那么能不能通过给$2^n$和$3^n$配上合理的系数，凑出$f(n)$的通项公式呢？为了计算方便，我们给定$f(1)=8$，$f(2)=22$。</p>
+<p>不妨令$f(n)=\alpha 2^n+\beta 3^n$，将$n=1$和$n=2$代入可以得到一个方程组，解得$\alpha =1$，$\beta =2$。算出前几项检验下，显然是正确的。</p>
+<p>【五】</p>
+<p>根据上面的推导我们知道，如果已知2个等比数列满足$f(n)$的递推式，我们就一定可以通过$f(n)$的两个特殊值列方程组，求出其通项公式。但是如何求出满足条件的等比数列呢？</p>
+<p>不妨假设满足条件等比数列的公比为$ \lambda $，则有<script type="math/tex">\lambda ^2 f(n-2)=5\lambda f(n-2)-6f(n-2)</script> ，约掉$f(n-2)$得。解方程，易得<script type="math/tex">\lambda =2</script>或$3$。</p>
+<p>【六】</p>
+<p>实际上，<script type="math/tex">\lambda ^2=5\lambda -6</script>就是递推式$f(n)=5f(n-1)-6f(n-2)$的特征方程。</p>
+<p>推广一下，递推式$f(n)=\alpha f(n-1)+\beta f(n-2)$的特征方程就是$\lambda ^2=\alpha \lambda +\beta$。换句话说，就是用1代替$f(n-2)$，<script type="math/tex">\lambda</script>代替$f(n-1)$，<script type="math/tex">\lambda ^2</script>代替$f(n)$。解出来的<script type="math/tex">\lambda</script>就是满足递推式的等比数列，然后列方程即可。</p>
+<p>再次推广，如果$f(n)$用$f(n-1)$到$f(n-x)$表示，那么用<script type="math/tex">1</script>代替$f(n-x)$，<script type="math/tex">\lambda</script>代替$f(n-x+1)$……直到<script type="math/tex">\lambda</script>表示$f(n)$。</p>
+<p>【七】</p>
+<p>回到开头的问题：求斐波那契数列即$f(n)=f(n-1)+f(n-2)$的通项公式。</p>
+<p>列出特征方程：<script type="math/tex">\lambda ^2=\lambda +1</script></p>
+<p>解得<script type="math/tex">\lambda _1=\frac {1-\sqrt 5} {2}</script>，<script type="math/tex">\lambda _2=\frac {1+\sqrt 5} {2}</script></p>
+<p>设<script type="math/tex">f(n)=\alpha {\lambda _1} ^{n-1} + \beta {\lambda _2} ^ {n-1}</script></p>
+<p>又$f(1)=1$，$f(2)=1$</p>
+<p>可得$\left\{\begin{matrix} \alpha + \beta =1 &amp;  &amp; \  \frac{1-\sqrt5}{2}\alpha +\frac {1+\sqrt5}{2}\beta =1 &amp;  &amp;  \end{matrix}\right.$</p>
+<p>解得<script type="math/tex">\left\{\begin{matrix}
+\alpha =\frac {5-\sqrt 5}{2}\\ 
+\beta =\frac {5+\sqrt 5}{2}
+\end{matrix}\right.</script></p>
+<p>代入原式并整理，得$f(n)=\frac{1}{\sqrt{5}}[(\frac{1+\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{5}}{2})^{n}]$。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月24日 07:36</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/07/characteristic-equation/" title="简析特征方程">https://ruixiangjiang.github.io/2018/11/07/characteristic-equation/</a></p>
+        <footer>
+            <a href="https://ruixiangjiang.github.io">
+                <img src="/images/logo.png" alt="RuixiangJiang">
+                RuixiangJiang
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ruixiangjiang.github.io/2018/11/07/characteristic-equation/&title=《简析特征方程》 — jrxjs的博客&pic=https://ruixiangjiang.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ruixiangjiang.github.io/2018/11/07/characteristic-equation/&title=《简析特征方程》 — jrxjs的博客&source=【前言】
+如果要求斐波那契数列的第$10^{12}$项（不考虑数值的溢出），使用$f(n)=f(n-1)+f(n-2)$显然已经不够了，矩阵乘法优化是不错..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ruixiangjiang.github.io/2018/11/07/characteristic-equation/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《简析特征方程》 — jrxjs的博客&url=https://ruixiangjiang.github.io/2018/11/07/characteristic-equation/&via=https://ruixiangjiang.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ruixiangjiang.github.io/2018/11/07/characteristic-equation/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACv0lEQVR42u3aS24jMQwFwNz/0gmQrd3tR1J0HKB6FUw+rdIAEv3Ir6/4+f59Hr9+/JnH7179y+OTr+Hwg4eHh9da+v0r75dyj7/67v3fv1pD/vN4eHh427zkMqi+Mj/Wkw3KLyc8PDy8z+Hdl87VojkpqZNLBQ8PD++/8O6P7FPleC8QwcPDw3sPLw8Ckug2v0LyTVnPWvDw8PBi3qQB9ldfv6m/h4eHh1fsqldj2WpxnMe1vQcPDw9vg5c3t6rtsTzAzcvralGOh4eHt8ebhAK9YDe5YKrBcTSmgIeHhzfm5R/786GrfNFnI48nb8HDw8Nb4OW/kIcOvWI6HzWo/jU8PDy8PV5+ZPeGA6KKvljENwMIPDw8vDGvekDn2caxjKTYPHuRteDh4eENeNUP+ZODfgJoDiXg4eHhrfE2hq62BwWi7cPDw8Nb4OXlb3UpeWneG1YoX2B4eHh4R3m99KJ3nZx9Y7TpeHh4eEd5veGqXnAwGZzKN/Eya8HDw8M7yrt/cX7c98YF5lt5WVjj4eHhLfN6QW2vmJ40wPL14OHh4e3x8iuhevRXB60KYwHBFuPh4eFt86pNrISdhK2FEjku3PHw8PDew8vbS/MGWDXYzfFPOnt4eHh4C7x8cXm7K29l9cKIKPLAw8PDW+D1Ct/qQT+JKqptsCerxcPDwzvK6w0znRqxqpbOORsPDw/vPbxjbaf4t+bvenG14OHh4S3w8iGAvPHfK5FfHPGDUh4PDw/vLO+7+OQXw/bwwbEwAg8PD6/Iq37UTyKAU1dFNfgo3354eHh4A141xs2P7PkW9MYOov8BPDw8vDEv/5BfjX17TbVmcdxLVvDw8PDWeD3kfUhRvaKqgQgeHh7ep/HyRn5+JZy6bPDw8PC2edXIINmCSQ08iYbx8PDwtnmnGmC9sa1q+b6xoXh4eHgx7wcjjivwWX/+YQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数论/" class="color3">数论</a>
+      
+    <a href="/tags/数列/" class="color3">数列</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/09/stone-games/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          从取石子游戏谈博弈论入门
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/06/I-m-JRX2015U43/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">如何搭建github.io博客</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTQzOS8xNzk4Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 RuixiangJiang<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://ruixiangjiang.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/信息技术/">信息技术</a><a class="category-link" href="/categories/数学/">数学</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章列表</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于作者</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/book">
+                    <i class="fa fa-book"></i><span>文献资料</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>构造对偶 | jrxjs的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="JRX2015U43,RuixiangJiang,JRX2015U43's Blog,jrxjs">
+  
+  <meta name="description" content="前言在数学解题过程中,合理地构造形式相似，具有某种对称关系的一对对偶关系式，并通过对这对对偶关系式进行适当的和,差,积等运算，往往能使问题得到巧妙的解决，收到事半功倍的效果。">
+<meta name="keywords" content="数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构造对偶">
+<meta property="og:url" content="https://ruixiangjiang.github.io/2018/12/04/构造对偶/index.html">
+<meta property="og:site_name" content="jrxjs的博客">
+<meta property="og:description" content="前言在数学解题过程中,合理地构造形式相似，具有某种对称关系的一对对偶关系式，并通过对这对对偶关系式进行适当的和,差,积等运算，往往能使问题得到巧妙的解决，收到事半功倍的效果。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/7.png">
+<meta property="og:updated_time" content="2018-12-06T15:08:22.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="构造对偶">
+<meta name="twitter:description" content="前言在数学解题过程中,合理地构造形式相似，具有某种对称关系的一对对偶关系式，并通过对这对对偶关系式进行适当的和,差,积等运算，往往能使问题得到巧妙的解决，收到事半功倍的效果。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/1.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">jrxjs&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章列表</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于作者</span>
+                    </a>
+                    
+                    <a href="/book">
+                        <i class="fa fa-book"></i>
+                        <span>文献资料</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        jrxjs&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        自己选择的路，跪着也要走完！
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="My homepage" target="_blank" href="//www.jrxjs.gq">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="渡" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2037358823&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="RuixiangJiang" target="_blank" href="//github.com/RuixiangJiang">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="JRX2015U43" target="_blank" href="//plus.google.com/u/0/108939226830271187693?tab=wX">
+                            <i class="fa fa-google fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-构造对偶" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      构造对偶
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数学/">数学</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-12-04
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+		
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <script src="/assets/js/APlayer.min.js"> </script><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在数学解题过程中,合理地构造形式相似，具有某种对称关系的一对对偶关系式，并通过对这对对偶关系式进行适当的和,差,积等运算，往往能使问题得到巧妙的解决，收到事半功倍的效果。</p>
+<a id="more"></a>
+<h3 id="一、和差对偶"><a href="#一、和差对偶" class="headerlink" title="一、和差对偶"></a>一、和差对偶</h3><p>例：若$3sin \theta +4cos\theta =5$，求$tan\theta $（$0&lt; \theta &lt; \frac {\pi }{2}$）。<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/1.png" alt=""></p>
+<h3 id="二、互倒对偶"><a href="#二、互倒对偶" class="headerlink" title="二、互倒对偶"></a>二、互倒对偶</h3><p>例：对$0&lt;x,y,z&lt;1$，求证$\frac {1}{1-x+y}+\frac {1}{1-y+z}+\frac {1}{1-z+x}\geq 3$。<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/2.png" alt=""></p>
+<h3 id="三、倒序对偶"><a href="#三、倒序对偶" class="headerlink" title="三、倒序对偶"></a>三、倒序对偶</h3><p>例：求$S=1\binom{n}{1}+2\binom{n}{2}+…+n\binom{n}{n}$。<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/3.png" alt=""></p>
+<h3 id="四、定值对偶"><a href="#四、定值对偶" class="headerlink" title="四、定值对偶"></a>四、定值对偶</h3><p>例：已知$f(x)=\frac{x^2}{1+x^2}$，求$S=f(\frac {1}{4})+f(\frac {1}{3})+f(\frac {1}{2})+f(1)+f(2)+f(3)+f(4)$。<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/4.png" alt=""></p>
+<h3 id="五、奇偶对偶"><a href="#五、奇偶对偶" class="headerlink" title="五、奇偶对偶"></a>五、奇偶对偶</h3><p>例：求证$\frac {1}{2} \times \frac {3}{4} \times \frac {5}{6} \times … \times \frac {2n-1}{2n}&lt;\frac {1}{\sqrt{2n+1}}$。<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/5.png" alt=""></p>
+<h3 id="六、轮换对偶"><a href="#六、轮换对偶" class="headerlink" title="六、轮换对偶"></a>六、轮换对偶</h3><p>例：求证对$\forall a,b\in (1,+\infty )$，均有$\frac {a^2}{b-1}+\frac {b^2}{a-1}\geq 8$。<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/6.png" alt=""></p>
+<h3 id="七、互余对偶"><a href="#七、互余对偶" class="headerlink" title="七、互余对偶"></a>七、互余对偶</h3><p>例：已知$x\in \left [ 0,\frac {\pi }{2} \right ]$，解方程$cos ^2 x+cos ^2 2x+cos^2 3x=1$。<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/%E6%9E%84%E9%80%A0%E5%AF%B9%E5%81%B6/7.png" alt=""></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月06日 23:08</p>
+        <p>原始链接： <a class="post-url" href="/2018/12/04/构造对偶/" title="构造对偶">https://ruixiangjiang.github.io/2018/12/04/构造对偶/</a></p>
+        <footer>
+            <a href="https://ruixiangjiang.github.io">
+                <img src="/images/logo.png" alt="RuixiangJiang">
+                RuixiangJiang
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ruixiangjiang.github.io/2018/12/04/构造对偶/&title=《构造对偶》 — jrxjs的博客&pic=https://ruixiangjiang.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ruixiangjiang.github.io/2018/12/04/构造对偶/&title=《构造对偶》 — jrxjs的博客&source=前言在数学解题过程中,合理地构造形式相似，具有某种对称关系的一对对偶关系式，并通过对这对对偶关系式进行适当的和,差,积等运算，往往能使问题得到巧妙的解决，..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ruixiangjiang.github.io/2018/12/04/构造对偶/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《构造对偶》 — jrxjs的博客&url=https://ruixiangjiang.github.io/2018/12/04/构造对偶/&via=https://ruixiangjiang.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ruixiangjiang.github.io/2018/12/04/构造对偶/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS27DMAwFwNz/0ummiwJplEdKLWB6vAoSV9Z4wfKjxyO+ni/X6/frb3qrHb4wMDAuy3gur/U9vZVfedXn/vJ0DAyMGzDebWL9eb2h9VNy3npvGBgYGOt7knQwTxyTtBIDAwPjVMBN8NVXgIGBgZEXnHkzrvqykuL2QC2OgYFxQUbedf//z38y38DAwLgU41m88jZZPuDc2c/3OhgYGKMZvVKz1xSrNt2qpS8GBsZURvXoQx5M84KzN/4svy0MDIyLM/LULQmvSWCtttg+gDEwMEYzeo37HUAyTmiOMDEwMEYzeu2zU4PP6kD0Q7sNAwNjHKP6BzvBMU/+kgHDlhsDA2MEI18o31DSRCv8l/h5PwYGxmjGfrP+1AGL/UYeBgbGVEaetFWvXlu/R8LAwJjNSMaHeXPtVBjtDScwMDCmMvaPcO0cxaiG+Cg1xMDAGMroDSzzmrh65KuZh2JgYNyA0QP3QnbvuNjbPWNgYIxm5Mlcfk81fUxeZbQyBgbGDRhJ6OyldFVMr6zFwMC4AyNJ1HphsRe4cyoGBsZ9GKcK0bNJZPmwBQYGxjhG71BFb1TQO5wavSwMDIzRjOqUME/aomRumYz2VsPAwJjKyINsdYRZDeXVdlt5MICBgXFxRrVxv76zutHesQ8MDAyM/SZatXzNi1sMDAyMXplaHQOcGo5iYGDch7Hz4PUDer9W18HAwJjN6JWOO4ldj7pzRAMDA+OyjC/JrImHaBVtHAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数论/" class="color3">数论</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、和差对偶"><span class="post-toc-text">一、和差对偶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、互倒对偶"><span class="post-toc-text">二、互倒对偶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、倒序对偶"><span class="post-toc-text">三、倒序对偶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、定值对偶"><span class="post-toc-text">四、定值对偶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、奇偶对偶"><span class="post-toc-text">五、奇偶对偶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、轮换对偶"><span class="post-toc-text">六、轮换对偶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七、互余对偶"><span class="post-toc-text">七、互余对偶</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/12/07/hexo博客如何加入来必力评论/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          hexo博客如何加入来必力评论
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/16/Disorderly-arrangement/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">错位排列问题</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTQzOS8xNzk4Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 RuixiangJiang<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://ruixiangjiang.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/信息技术/">信息技术</a><a class="category-link" href="/categories/数学/">数学</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章列表</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于作者</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/book">
+                    <i class="fa fa-book"></i><span>文献资料</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

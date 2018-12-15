@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>浅谈母函数 | jrxjs的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="JRX2015U43,RuixiangJiang,JRX2015U43's Blog,jrxjs">
+  
+  <meta name="description" content="一、定义对于数列：$a_0,a_1,a_2,…,a_n$，设$G(x)=a_0+a_1x+a_2x^2+…+a_nx^n$，则称$G(x)$是该数列的生成函数，也叫母函数。  普通型：$G(a_n;x)=\sum_{n=0}^{\infty }a_nx^n$ 指数型：$EG(a_n;x)=\sum_{n=0}^{\infty }a_n\frac {x^n}{n!}$">
+<meta name="keywords" content="数论,生成函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈母函数">
+<meta property="og:url" content="https://ruixiangjiang.github.io/2018/11/10/Generating-function/index.html">
+<meta property="og:site_name" content="jrxjs的博客">
+<meta property="og:description" content="一、定义对于数列：$a_0,a_1,a_2,…,a_n$，设$G(x)=a_0+a_1x+a_2x^2+…+a_nx^n$，则称$G(x)$是该数列的生成函数，也叫母函数。  普通型：$G(a_n;x)=\sum_{n=0}^{\infty }a_nx^n$ 指数型：$EG(a_n;x)=\sum_{n=0}^{\infty }a_n\frac {x^n}{n!}$">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-23T23:03:20.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈母函数">
+<meta name="twitter:description" content="一、定义对于数列：$a_0,a_1,a_2,…,a_n$，设$G(x)=a_0+a_1x+a_2x^2+…+a_nx^n$，则称$G(x)$是该数列的生成函数，也叫母函数。  普通型：$G(a_n;x)=\sum_{n=0}^{\infty }a_nx^n$ 指数型：$EG(a_n;x)=\sum_{n=0}^{\infty }a_n\frac {x^n}{n!}$">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">jrxjs&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章列表</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于作者</span>
+                    </a>
+                    
+                    <a href="/book">
+                        <i class="fa fa-book"></i>
+                        <span>文献资料</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        jrxjs&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        自己选择的路，跪着也要走完！
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="My homepage" target="_blank" href="//www.jrxjs.gq">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="渡" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2037358823&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="RuixiangJiang" target="_blank" href="//github.com/RuixiangJiang">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="JRX2015U43" target="_blank" href="//plus.google.com/u/0/108939226830271187693?tab=wX">
+                            <i class="fa fa-google fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Generating-function" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      浅谈母函数
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数学/">数学</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-10
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+		
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <script src="/assets/js/APlayer.min.js"> </script><h3 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h3><p>对于数列：$a_0,a_1,a_2,…,a_n$，设$G(x)=a_0+a_1x+a_2x^2+…+a_nx^n$，则称$G(x)$是该数列的生成函数，也叫母函数。</p>
+<ul>
+<li>普通型：$G(a_n;x)=\sum_{n=0}^{\infty }a_nx^n$</li>
+<li>指数型：$EG(a_n;x)=\sum_{n=0}^{\infty }a_n\frac {x^n}{n!}$</li>
+</ul>
+<a id="more"></a>
+<h3 id="二、计算"><a href="#二、计算" class="headerlink" title="二、计算"></a>二、计算</h3><ul>
+<li>加减：<script type="math/tex">F(x)\pm G(x) \leftrightarrow <f_0\pm g_0,f_1\pm g_1,f_2\pm g_2,...></script></li>
+<li>乘常数：<script type="math/tex">c\times G(x) \leftrightarrow  <c\times g_0,c\times g_1,c\times g_2,...></script></li>
+<li>乘幂：$x^k\times G(x)\leftrightarrow <0,0,...,0,g_0,g_1,...>$ （前面有$k$个0）</0,0,...,0,g_0,g_1,...></li>
+<li>两母函数相乘：$F(x)\times G(x)$跑FFT搞多项式乘法</li>
+<li>求导：<script type="math/tex">G'(x) \leftrightarrow <g_1,2g_2,3g_3,...></script><h3 id="三、应用"><a href="#三、应用" class="headerlink" title="三、应用"></a>三、应用</h3><h6 id="1、已知数列递推式，求通项公式"><a href="#1、已知数列递推式，求通项公式" class="headerlink" title="1、已知数列递推式，求通项公式"></a>1、已知数列递推式，求通项公式</h6>和特征方程类似，此处不再赘述。<h6 id="2、解决组合问题"><a href="#2、解决组合问题" class="headerlink" title="2、解决组合问题"></a>2、解决组合问题</h6><h6 id="3、一些奇思妙想"><a href="#3、一些奇思妙想" class="headerlink" title="3、一些奇思妙想"></a>3、一些奇思妙想</h6><h3 id="四、例子"><a href="#四、例子" class="headerlink" title="四、例子"></a>四、例子</h3><h6 id="1、有一些水果，只能拿3的倍数个苹果，只能拿质数个草莓。问对于每个-0-lt-i-lt-n-，有多少种方案使得恰好拿-i-个水果。"><a href="#1、有一些水果，只能拿3的倍数个苹果，只能拿质数个草莓。问对于每个-0-lt-i-lt-n-，有多少种方案使得恰好拿-i-个水果。" class="headerlink" title="1、有一些水果，只能拿3的倍数个苹果，只能拿质数个草莓。问对于每个$0&lt;i&lt;=n$，有多少种方案使得恰好拿$i$个水果。"></a>1、有一些水果，只能拿3的倍数个苹果，只能拿质数个草莓。问对于每个$0&lt;i&lt;=n$，有多少种方案使得恰好拿$i$个水果。</h6>不妨先构造两个布尔数组（第i个数为0表示不能拿i个，反之能拿）：</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">苹果-[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1.</span>..] </span><br><span class="line">草莓-[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0.</span>..]</span><br></pre></td></tr></table></figure>
+<p>用上面两个数组构造母函数：<br>苹果-$Apple(x)=x^3+x^6+x^9+…$<br>草莓-$Straw(x)=x^2+x^3+x^5+x^7+…$<br>将两个式子相乘，发现$x^k$的系数正好表示取$k$个苹果或草莓的方案数（强烈建议自己动手推，当然前提是得会极限思想等）。<br>以$x^4$为例，显然$x^4=x^{0} \times x^4=x^1\times x^3=x^2\times x^2=x^{3} \times x^1=x^4\times x^0$，且没有其他拆分方案。这显然可以表示0个苹果+4个草莓，1个苹果+3个草莓……这些选取方案。<br>根据FFT，可以在$O(n log n)$的时间里求出答案，直接输出卷积即可。</p>
+<h6 id="2、从只有4个女装大佬的队伍中选出-n-个女装大佬的方案数。"><a href="#2、从只有4个女装大佬的队伍中选出-n-个女装大佬的方案数。" class="headerlink" title="2、从只有4个女装大佬的队伍中选出$n$个女装大佬的方案数。"></a>2、从只有4个女装大佬的队伍中选出$n$个女装大佬的方案数。</h6><p>有点组合基础的就能发现，显然是$\binom{n}{4}$。<br>从n=0开始枚举，显然答案为：<code>1,4,6,4,1</code>。求其生成函数，易得$G(x)=1+4x+6x^2+4x^3+x^4$。有没有发现序列$1,4,6,4,1$非常熟悉？这不就是二项式展开嘛！于是$G(x)=(1+x)^4$。</p>
+<h6 id="3、求-n-x-1-x-2-x-3-…-x-k-有多少非负整数解。"><a href="#3、求-n-x-1-x-2-x-3-…-x-k-有多少非负整数解。" class="headerlink" title="3、求$n=x_1+x_2+x_3+…+x_k$有多少非负整数解。"></a>3、求$n=x_1+x_2+x_3+…+x_k$有多少非负整数解。</h6><p>将每个$x_i$都增加1，则有$n+k=x_1+x_2+x_3+…+x_k$。考虑隔板法：把$n+k$个数排成一排，在$n+k-1$个空格中插入$k-1$个隔板，方案数为$\binom{k-1}{n+k-1}=\binom{n}{n+k-1}$，关于$n$的生成函数是$G(x)=\frac {1}{(1-x)^k}=(1-x)^{-k}$。简单证明下：用<a href="https://baike.baidu.com/item/%E7%89%9B%E9%A1%BF%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">牛顿二项式定理</a>可得$x^n$的系数是$\binom{n}{n+k-1}$。<br>换用生成函数来解释：由$1+x+x^2+x^3+x^4+…=\frac {1}{1-x}$可得$(1+x+x^2+x^3+x^4+…)^k=\frac {1}{(1-x)^k}$，显然展开之后$n$次项的系数就是答案。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月24日 07:03</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/10/Generating-function/" title="浅谈母函数">https://ruixiangjiang.github.io/2018/11/10/Generating-function/</a></p>
+        <footer>
+            <a href="https://ruixiangjiang.github.io">
+                <img src="/images/logo.png" alt="RuixiangJiang">
+                RuixiangJiang
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ruixiangjiang.github.io/2018/11/10/Generating-function/&title=《浅谈母函数》 — jrxjs的博客&pic=https://ruixiangjiang.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ruixiangjiang.github.io/2018/11/10/Generating-function/&title=《浅谈母函数》 — jrxjs的博客&source=一、定义对于数列：$a_0,a_1,a_2,…,a_n$，设$G(x)=a_0+a_1x+a_2x^2+…+a_nx^n$，则称$G(x)$是该数列的生成..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ruixiangjiang.github.io/2018/11/10/Generating-function/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅谈母函数》 — jrxjs的博客&url=https://ruixiangjiang.github.io/2018/11/10/Generating-function/&via=https://ruixiangjiang.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ruixiangjiang.github.io/2018/11/10/Generating-function/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3awZJiIQwFUP//p51tV03R3hvAfovDytInclgQTPJ6xeP9Y7TP/HxnNcPqmeS7BwYeHh7extL/H6ulz95ZLTTfvnzNeHh4eLd57WGdfDoLJ7/Plq8ZDw8P7zm89shuv9VuAR4eHt7zefnRn1zQ85nx8PDwnsabTT17nYOTNMexXAseHh5ezMurSM95faW+h4eHh7ddVW8P61k5bf/CvZwNDw8P7wIvP3DzC/cs/Zr/bt0choeHh3eB1056NlQkYSBPSUSbiIeHh3eIt1pWe11ufzgvv+W/8koqY3h4eHgjXk7KF7TfELCfpMDDw8P7Pq9F7hz3B5ILbazDw8PD2+AlUyRJgfYyvX+NLq74eHh4eEd5szCQL+VUq0EbcraiHB4eHl7JSy7Z32kU2CnILQMDHh4e3iHerCTWBpU8dTtbySuPIXh4eHgXeLMS1Kn0bp4E+bDFeHh4eBd4beqh3Y7Z/DupjTq+4eHh4ZW8PA1RtDqN9niWwogqe3h4eHhf5G1Fm3KenbTIcmY8PDy8C7zkgE4SEG1yNk9qtOupL9l4eHh4I97ZRtK8WLXTZFAU8/Dw8PCO8naO5lNlqragdaynDA8PD2+j43RW7sqTAjuHfhu08PDw8L7Dm5WX3r+OHPwORpuewMPDw7vNyw/ctgR146rdti/g4eHh3ePlxfi8fNUW0vKWgqI4h4eHh3eNt1+sSq7Xw9t9WfrCw8PDu8d7l6MtU82SsElyOfoUDw8P7wKvPXxn7Dz1kDcNtEELDw8P7ywvX3obAGZNCbOk7XJmPDw8vGu8WcNTe/QnG9RGsCgw4OHh4f0pb5Y+aOfMP/3wPB4eHt4DeLPAkLcjtGmRD1EADw8P7xqvTQTkbVhJAqJ9vvgWHh4e3gXe7A//ThJhFgZmqQo8PDy8o7x/U9F9guKdDeEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数论/" class="color3">数论</a>
+      
+    <a href="/tags/生成函数/" class="color5">生成函数</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、定义"><span class="post-toc-text">一、定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、计算"><span class="post-toc-text">二、计算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、应用"><span class="post-toc-text">三、应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1、已知数列递推式，求通项公式"><span class="post-toc-text">1、已知数列递推式，求通项公式</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2、解决组合问题"><span class="post-toc-text">2、解决组合问题</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3、一些奇思妙想"><span class="post-toc-text">3、一些奇思妙想</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、例子"><span class="post-toc-text">四、例子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1、有一些水果，只能拿3的倍数个苹果，只能拿质数个草莓。问对于每个-0-lt-i-lt-n-，有多少种方案使得恰好拿-i-个水果。"><span class="post-toc-text">1、有一些水果，只能拿3的倍数个苹果，只能拿质数个草莓。问对于每个$0&lt;i&lt;=n$，有多少种方案使得恰好拿$i$个水果。</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2、从只有4个女装大佬的队伍中选出-n-个女装大佬的方案数。"><span class="post-toc-text">2、从只有4个女装大佬的队伍中选出$n$个女装大佬的方案数。</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3、求-n-x-1-x-2-x-3-…-x-k-有多少非负整数解。"><span class="post-toc-text">3、求$n=x_1+x_2+x_3+…+x_k$有多少非负整数解。</span></a></li></ol></li>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/13/Topdamain/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          如何破解极域电子教室
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/09/stone-games/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">从取石子游戏谈博弈论入门</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTQzOS8xNzk4Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 RuixiangJiang<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://ruixiangjiang.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/信息技术/">信息技术</a><a class="category-link" href="/categories/数学/">数学</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章列表</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于作者</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/book">
+                    <i class="fa fa-book"></i><span>文献资料</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/数列/" style="font-size: 15px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
