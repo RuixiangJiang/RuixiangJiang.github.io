@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>slayone | jrxjs的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="JRX2015U43,RuixiangJiang,JRX2015U43's Blog,jrxjs">
+  
+  <meta name="description" content="零、前言 本文主要写给从洛谷赶来的OIer们。 如果不知道这是什么东西，请点我。 不管什么游戏，都要用物理和数学的方式玩它，否则游戏就真的危害身心健康了。 沉迷游戏伤身！">
+<meta name="keywords" content="slay.one,随笔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="slayone">
+<meta property="og:url" content="https://ruixiangjiang.github.io/2018/11/10/slayone/index.html">
+<meta property="og:site_name" content="jrxjs的博客">
+<meta property="og:description" content="零、前言 本文主要写给从洛谷赶来的OIer们。 如果不知道这是什么东西，请点我。 不管什么游戏，都要用物理和数学的方式玩它，否则游戏就真的危害身心健康了。 沉迷游戏伤身！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/slay%E4%BB%93%E5%BA%931.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/slay%E4%BB%93%E5%BA%932.png">
+<meta property="og:updated_time" content="2018-12-18T04:31:08.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="slayone">
+<meta name="twitter:description" content="零、前言 本文主要写给从洛谷赶来的OIer们。 如果不知道这是什么东西，请点我。 不管什么游戏，都要用物理和数学的方式玩它，否则游戏就真的危害身心健康了。 沉迷游戏伤身！">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/slay%E4%BB%93%E5%BA%931.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">jrxjs&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文章列表</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于作者</span>
+                    </a>
+                    
+                    <a href="/book">
+                        <i class="fa fa-book"></i>
+                        <span>文献资料</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        jrxjs&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        自己选择的路，跪着也要走完！
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="My homepage" target="_blank" href="//www.jrxjs.gq">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="渡" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2037358823&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="RuixiangJiang" target="_blank" href="//github.com/RuixiangJiang">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="JRX2015U43" target="_blank" href="//plus.google.com/u/0/108939226830271187693?tab=wX">
+                            <i class="fa fa-google fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-slayone" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      slayone
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/愉悦身心/">愉悦身心</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-10
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+		
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <script src="/assets/js/APlayer.min.js"> </script><h3 id="零、前言"><a href="#零、前言" class="headerlink" title="零、前言"></a>零、前言</h3><ul>
+<li>本文主要写给从洛谷赶来的OIer们。</li>
+<li>如果不知道这是什么东西，请点<a href="slay.one">我</a>。</li>
+<li>不管什么游戏，都要用物理和数学的方式玩它，否则游戏就真的危害身心健康了。</li>
+<li>沉迷游戏伤身！</li>
+</ul>
+<a id="more"></a>
+<h3 id="一、各类武器浅析"><a href="#一、各类武器浅析" class="headerlink" title="一、各类武器浅析"></a>一、各类武器浅析</h3><ul>
+<li>导弹系列：威力较大，有击退效果。</li>
+<li>榴弹系列：威力较大，可以翻过木箱子打击敌人，但是不能翻过墙。</li>
+<li>狙击系列（似乎就2把）：威力恐怖（得用的好才能发现威力是恐怖的，新手估计玩不好），对技术要求较高。</li>
+<li>近战系列：近距离威力可观，远距离要么就是打不到，要么威力小的可怜。</li>
+<li>激光系列（似乎也是2把）：一个是开局默认的枪，性能不咋地。另一个激光枪是捡的，碰到障碍可以反弹，遵循光的反射定律，实乃物理学圣剑！</li>
+</ul>
+<h3 id="二、解读武器"><a href="#二、解读武器" class="headerlink" title="二、解读武器"></a>二、解读武器</h3><ul>
+<li>黄导<ul>
+<li>用法：自瞄武器，导弹可以自动追踪敌人跑，开阔地绝对无敌，狭窄的地方可以辅以近战武器，但是要小心不要挨着对方或者墙开炮，会对自己造成伤害乃至击飞自己。有一个比较聪明的方法，就是在稍微开阔点的地方，锁定敌人之后在敌人视界外发射，尽管两个人都看不见对方，但是我的导弹可以打到他。还有一种就是我和敌人在一堵墙的两边，这时候可以选择直接轰墙击飞敌人（敌人紧贴着墙背靠着水的时候可以把敌人打到水里秒杀）造成伤害，或者风骚走位绕到敌人那边，露个头，开炮，躲回去，0.1s完成即可。</li>
+<li>躲避：风骚绕障碍物走位，诱使其撞墙；用其他武器（黄导对黄导最好）攻击导弹，可以打爆（我喜欢用机枪打，射速快，不过喷火器打导弹没试过能不能打掉，如果能的话开阔地都不怕黄导了）。如果人物有墙这个技能（比如欧若拉）可以在导弹来的路上放个墙，优雅拦截。</li>
+</ul>
+</li>
+<li>普通榴弹发射器<ul>
+<li>用法：这个东西可以跨过箱子和矮墙打击敌人，屏幕出现的大圆就是榴弹作战半径，鼠标那个点就是榴弹落点。最近发现榴弹真的非常舒服，预判好之后一个榴弹扔过去基本都能落在对方脚底下，一下子打掉60%的血，然后再来一个，稳稳来个人头！</li>
+<li>躲避：如果隔着墙就不用躲了，榴弹打不过来。如果很不巧跟榴弹隔着个箱子，就是他能打到我但是我打不到他，就立刻退出战场，或者预判榴弹落点然后躲开。如果有手雷技能可以扔手雷反击。</li>
+</ul>
+</li>
+<li>红导<ul>
+<li>用法：导弹跟着鼠标跑，可以进行一切风骚走位躲避拦截，障碍较多的时候红导可以绕过去打出优秀的战绩。</li>
+<li>躲避：只能打掉了，或者用墙迅速放在它前面1格的位置，让对方来不及绕道。当然相对于黄导多了一种方法，就是迅速脱离对方视野，对方看不到你的话红导当然没法瞄准咯，导弹就会原地绕圈圈。</li>
+</ul>
+</li>
+<li>普通火箭发射器<ul>
+<li>用法：会发射出一个直线飞行的火箭，速度非常快，威力贼大，如果正好打中伤害可观，还可以打下水。不过注意换弹时间有点长，打完一发之后迅速躲避或者迅速切换武器！</li>
+<li>躲避：似乎只能绕开了……当然用能量狙打爆也可以，如果时间卡的准可以让导弹在对面炮管里爆炸使对方自杀！</li>
+</ul>
+</li>
+<li>猎枪<ul>
+<li>用法：近距离伤害几乎抵得上快速火箭了，但是远距离跟挠痒痒差不多。注意猎枪可以提升移动速度，正确食用方式是开隐身技能（如果没有就算了），迅速接近对方，贴身开火。</li>
+<li>躲避：参考“秦王环柱走”。</li>
+</ul>
+</li>
+<li>火焰喷射器<ul>
+<li>用法：大概向前攻击<code>1*2至1*5</code>个格子，如果一边喷一边向前跑的话攻击距离极短，反正如果一边后退一边喷的话攻击距离非常可观，适合从角落突然跳出来黏着喷，或者后退的时候喷一喷阻击敌人。</li>
+<li>躲避：如果被近身了就用导弹轰，把自己弹开；如果想追击但是被喷可以考虑用远程武器攻击。快速绕到障碍物后面也是不错的方法，因为火焰不能通过障碍。</li>
+</ul>
+</li>
+<li>狙击枪<ul>
+<li>用法：找个背靠障碍、前方没啥障碍的地方，按F瞄准，可以放大到2倍视野。注意只有按下F后才能开枪！一定要小心瞄准的时候被偷袭！如果被近身就迅速切枪，切忌拖着狙击枪逃跑，会瞬狙的除外。</li>
+<li>躲避：大致根据子弹射过来的轨迹判断狙击手位置，几个导弹过去世界就清静了。如果找不到就用机枪一阵扫射，有生命偷取技能的看到回血就说明打中了，然后导弹招呼。如果身法好可以诱骗他打完5发子弹，趁他换弹夹的时候迅速跳过去近身攻击。</li>
+<li>瞬狙技巧：大致预判敌人位置，按下F之后鼠标微调（不能用太多时间瞄准）的同时开枪。如果练熟了一把狙击足以平天下。</li>
+</ul>
+</li>
+<li>能量狙击枪<ul>
+<li>用法：这东西虽然叫狙击枪，但是它更像是激光枪……这东西射出去没有延时，不需要什么预判，对着人点就可以了，对面各种蛇皮走位统统失效！</li>
+<li>躲避：你需要<del>更加蛇皮的走位</del>迅速躲到障碍物后面，或者用导弹之类的对刚。</li>
+<li>能量球技巧：按Y键可以放出一个能量球，飞行速度比较慢，威力比导弹略低，可以击飞敌人。</li>
+<li>打爆能量球技巧：当能量球快飞到敌人旁边的时候开枪射它，可以把它打爆，威力相当于原子弹！尝试下就会发现，特效就占了半个屏幕，威力自然不俗！范围控制得好的话一炮轰死一个满血+护甲都是有可能的。</li>
+</ul>
+</li>
+<li>快速火箭/榴弹发射器<ul>
+<li>用法：相对于普通火箭/榴弹大幅提高射速，相应减少一点威力和冲击力。正确食用姿势是按着鼠标左键，连续打完8发火箭/榴弹，最好是扇面打，因为这东西最好就是火力覆盖用的。</li>
+<li>躲避：跟上面的差不多，不再赘述。</li>
+<li>特殊场合有大作用：<ul>
+<li>逃跑的时候不要命地向后面发射弹药，可以有效阻止敌人，如果碰巧的话还能反杀。</li>
+<li>如果碰到隐身的人怎么办？快速榴弹在自己为圆心半径1个单位的弧上每隔45°扔一个，保管敌人没法靠近，没准还能反杀。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>急射小机枪<ul>
+<li>用法：过于简单，懒得打字了。</li>
+<li>躲避：跟上面差不多。</li>
+<li>特殊场合有大作用： <ul>
+<li>打狙击手，上面已经说过了。</li>
+<li>如果敌人脱离了你的屏幕范围，但是你大致知道敌人的位置，没说的，扫射吧。</li>
+<li>近距离伤害非常可观，如果被喷火器之类的缠上可以考虑对刚。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>激光枪（绿色的那个，不是开局自动给的）<ul>
+<li>用法：射出碰到障碍物可以反弹的子弹（做成激光的样子，但是与激光的物理性质完全不符合）。反弹遵循光的反射定律，可以有效打击躲到障碍物后面的人。</li>
+<li>特殊场合有大作用：<ul>
+<li>朝着人多的地方使劲射，没准就打中了呢~</li>
+<li>在空旷的地方也可以漫无目的地射。</li>
+<li>逃跑的时候可以对着障碍物开枪，反弹以攻击追击者。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、解读技能"><a href="#三、解读技能" class="headerlink" title="三、解读技能"></a>三、解读技能</h3><ul>
+<li>治疗塔：安放治疗塔之后可以覆盖<code>3*3</code>的方格，人走进去可以回血。</li>
+<li>激光炮塔：安放激光塔之后炮塔可以自动检测敌人并发射激光，注意这里激光的射速和威力相对于开局自动给的那个激光大幅提升！</li>
+<li>导弹炮塔：与上类似。</li>
+<li>榴弹炮塔：与上类似。</li>
+<li>手雷：丢一个手雷出去，作战半径比较大，威力可观，可以理解为加强版榴弹。</li>
+<li>激光手雷：与上类似，不同点在于手雷爆炸后向四周射出将近10个激光，在狭窄区域内近乎无敌，威力恐怖！</li>
+<li>酸性手雷：与上类似，不同点在于手雷爆炸后对手雷爆炸点为中心，<code>6*6</code>的方格内所有物体造成持续伤害。这东西堵路或者打机器人非常好。</li>
+<li>生命偷取：打中别人可以回血。</li>
+<li>能量恢复：建炮塔啊手雷啊之类的都需要能量，人物默认是每段时间恢复一点（这个可以通过绿色生命条下面紫色条查看），有了这个技能可以加快恢复。</li>
+<li>隐身：字面意思。</li>
+<li>护盾：开启技能之后2秒内所有伤害减少为原来的10%，如果被导弹追击摆脱不了可以开技能迎上去，基本没啥伤害。</li>
+<li>传送：字面意思。注意传送后2秒内不能开火，所以这东西只适合逃跑。有隐身技能的除外。</li>
+<li>移动速度：提升人物速度。</li>
+<li>墙：放个障碍物，可以用来拦截导弹，团队夺旗模式下可以用墙把旗子围起来。</li>
+<li>扫描：在左上角小地图上显示所有玩家位置，靠近身旁的隐身玩家也会变清晰。</li>
+<li>其他技能个人感觉没啥用，不说了。</li>
+</ul>
+<h3 id="四、人物选择"><a href="#四、人物选择" class="headerlink" title="四、人物选择"></a>四、人物选择</h3><h6 id="人物的购买"><a href="#人物的购买" class="headerlink" title="人物的购买"></a>人物的购买</h6><ul>
+<li>人物的升级可以解锁新人物，当然如果有足够金币或钻石也可以直接购买。</li>
+<li>人物升1级：消耗金币<em>100+碎片</em>1</li>
+<li>人物升到满级：消耗金币<em>10000或钻石</em>1（不需要碎片）</li>
+<li>显然直接购买满级人物更加划算吧</li>
+</ul>
+<h6 id="人物的选择"><a href="#人物的选择" class="headerlink" title="人物的选择"></a>人物的选择</h6><p>可以参考我的满级人物：<br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/slay%E4%BB%93%E5%BA%931.png" alt=""><br><img src="https://raw.githubusercontent.com/RuixiangJiang/blog-source/master/pictures/slay%E4%BB%93%E5%BA%932.png" alt=""></p>
+<h3 id="五、战斗技巧"><a href="#五、战斗技巧" class="headerlink" title="五、战斗技巧"></a>五、战斗技巧</h3><ul>
+<li>用导弹打击背后是水的敌人，可以把敌人击退到水里，造成秒杀！同理，尽量不要站在水边跟拿导弹的对打。</li>
+<li>如果敌人躲在墙后面，用导弹打可以击飞并造成伤害。如果敌人身后又是水就可以秒杀了。这一点在地图<code>Forest</code>里体现得淋漓尽致。</li>
+<li>如果跟敌人隔着墙，可以考虑在敌人那边放个炮塔。</li>
+<li>如果在开阔的地方被追击而且自己残血，可以考虑放炮塔。</li>
+<li>炮塔尽量不要紧贴着墙，否则对方可以用导弹隔墙打。</li>
+<li>合理运用跳跃技能可以大幅提高移动速度。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月18日 12:31</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/10/slayone/" title="slayone">https://ruixiangjiang.github.io/2018/11/10/slayone/</a></p>
+        <footer>
+            <a href="https://ruixiangjiang.github.io">
+                <img src="/images/logo.png" alt="RuixiangJiang">
+                RuixiangJiang
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ruixiangjiang.github.io/2018/11/10/slayone/&title=《slayone》 — jrxjs的博客&pic=https://ruixiangjiang.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ruixiangjiang.github.io/2018/11/10/slayone/&title=《slayone》 — jrxjs的博客&source=零、前言
+本文主要写给从洛谷赶来的OIer们。
+如果不知道这是什么东西，请点我。
+不管什么游戏，都要用物理和数学的方式玩它，否则游戏就真的危害身心健康了。..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ruixiangjiang.github.io/2018/11/10/slayone/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《slayone》 — jrxjs的博客&url=https://ruixiangjiang.github.io/2018/11/10/slayone/&via=https://ruixiangjiang.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ruixiangjiang.github.io/2018/11/10/slayone/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7jMAwF0Nz/0ul2gKmVT1EpYPppFRi2rOcCLEXq9YrHezmu7vn3+nq2/6+/vjEwMDBuy6gusf9Usob8LRgYGM9hXE199Ttf7jqMJs+u14aBgYGxvicJi0n6WH0vBgYGRhJwE946sOahHAMDAyMPlElKl8xQferwXhwDA+OGjDxc/v3vr/Q3MDAwbsV4F0c/lfzKqjAwMEYz8tes07I8cew0Az5siTEwMEYzqo3Jfuk/L7eVQzYGBsZoRh5A89ckvPxD5Ac4MDAwJjHyIxSd9kA/Nn64HwMD45GM6qTJbHkKmAT3KOBiYGCMYOSAhNRJ+6ozb8ZvDAyM2zKqRbRqsWyvVVDePGNgYAxldJqF/fCaNy8/vAsDA2M0I5/u7BLz8F04ZoGBgTGUcbbQn7Qeq42H6LAFBgbGAxh5Ob56pRrK88bDLxkuBgbGUMZeq6AfiPNPcGxgYGDclpGEwrOtx3zrWwBjYGCMZuRFsU6bM3lLtTlR+JtgYGAMYvQL/clsezNEaSsGBsYDGHvTnVpWldpKDTEwMMYx8m1qvtHNm5eFLS4GBsZQxrs4Ou2EvHlZTSsxMDBmM6rL2msMFEpm7X8AGBgYUxl50T9vdiZBdu+TFb40BgbGOEbntFU1OPY3sRgYGBinivX58a/8gAUGBgZGJ+HbSz07x8Iu+xsYGBhDGXuHU09tWattTgwMjKcx+rWsvZBdLeF1tr4YGBi3ZfwA4C5LqcboGEsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/slay.one/" class="color4">slay.one</a>
+      
+    <a href="/tags/随笔/" class="color3">随笔</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#零、前言"><span class="post-toc-text">零、前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、各类武器浅析"><span class="post-toc-text">一、各类武器浅析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、解读武器"><span class="post-toc-text">二、解读武器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、解读技能"><span class="post-toc-text">三、解读技能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、人物选择"><span class="post-toc-text">四、人物选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#人物的购买"><span class="post-toc-text">人物的购买</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#人物的选择"><span class="post-toc-text">人物的选择</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、战斗技巧"><span class="post-toc-text">五、战斗技巧</span></a></li>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/10/Generating-function/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          浅谈母函数
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/09/stone-games/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">从取石子游戏谈博弈论入门</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTQzOS8xNzk4Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 RuixiangJiang<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://ruixiangjiang.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/信息技术/">信息技术</a><a class="category-link" href="/categories/愉悦身心/">愉悦身心</a><a class="category-link" href="/categories/数学/">数学</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 13.33px;">shell</a> <a href="/tags/slay-one/" style="font-size: 10px;">slay.one</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/放缩法/" style="font-size: 10px;">放缩法</a> <a href="/tags/数列/" style="font-size: 16.67px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>文章列表</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于作者</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/book">
+                    <i class="fa fa-book"></i><span>文献资料</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/shell/" style="font-size: 13.33px;">shell</a> <a href="/tags/slay-one/" style="font-size: 10px;">slay.one</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/排列组合/" style="font-size: 10px;">排列组合</a> <a href="/tags/放缩法/" style="font-size: 10px;">放缩法</a> <a href="/tags/数列/" style="font-size: 16.67px;">数列</a> <a href="/tags/数论/" style="font-size: 20px;">数论</a> <a href="/tags/生成函数/" style="font-size: 10px;">生成函数</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+</html>
