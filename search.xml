@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CF1158A The Party and Sweets]]></title>
+    <url>%2F2019%2F06%2F12%2FCF1158A%2F</url>
+    <content type="text"><![CDATA[Solution：贪心、模拟 1、英文题面$n$ boys and $m$ girls came to the party. Each boy presented each girl some integer number of sweets (possibly zero). All boys are numbered with integers from $1$ to $n$ and all girls are numbered with integers from $1$ to $m$. For all $1≤i≤n$ the minimal number of sweets, which $i$-th boy presented to some girl is equal to $b_i$ and for all $1≤j≤m$ the maximal number of sweets, which $j$-th girl received from some boy is equal to $g_j$.More formally, let $a_{i,j}$ be the number of sweets which the $i$-th boy give to the $j$-th girl. Then $b_i$ is equal exactly to the minimum among values $a_{i,1}$,$a{i,2}$,…,$a_{i,m}$ and $g_j$ is equal exactly to the maximum among values $b_{1,j}$,$b_{2,j}$,…,$b_{n,j}$.You are interested in the minimum total number of sweets that boys could present, so you need to minimize the sum of $a_{i,j}$ for all $(i,j)$ such that $1≤i≤n$ and $1≤j≤m$. You are given the numbers $b_1$,…,$b_n$ and $g_1$,…,$g_m$, determine this number. 2、中文题面有n个男孩和m个女孩，每个男孩都给女孩分了糖果，给出每个男孩分给每个女孩的糖果数量中最少的数量，和每个女孩从一个男孩中收到的最大糖果数量，求出女孩收到的总糖果数最少是多少。]]></content>
+      <categories>
+        <category>信息技术</category>
+      </categories>
+      <tags>
+        <tag>贪心</tag>
+        <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[放缩法]]></title>
     <url>%2F2018%2F12%2F15%2F%E6%94%BE%E7%BC%A9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[很多数列题需要通过多角度观察所给数列通项公式的结构，深入剖析其特征，再抓住其规律进行恰当地放缩。本文介绍九种主要的放缩方法。]]></content>

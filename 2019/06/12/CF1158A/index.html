@@ -3,21 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>归档: 2018 | jrxjs的博客</title>
+  <title>CF1158A The Party and Sweets | jrxjs的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="JRX2015U43,RuixiangJiang,JRX2015U43's Blog,jrxjs">
   
-  <meta name="description" content="jrxjs的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="jrxjs的博客">
-<meta property="og:url" content="https://ruixiangjiang.github.io/archives/2018/index.html">
+  <meta name="description" content="Solution：贪心、模拟">
+<meta name="keywords" content="贪心,模拟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF1158A The Party and Sweets">
+<meta property="og:url" content="https://ruixiangjiang.github.io/2019/06/12/CF1158A/index.html">
 <meta property="og:site_name" content="jrxjs的博客">
-<meta property="og:description" content="jrxjs的博客">
+<meta property="og:description" content="Solution：贪心、模拟">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T15:21:48.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jrxjs的博客">
-<meta name="twitter:description" content="jrxjs的博客">
+<meta name="twitter:title" content="CF1158A The Party and Sweets">
+<meta name="twitter:description" content="Solution：贪心、模拟">
   
   
     <link rel="icon" href="/favicon.png">
@@ -113,329 +115,206 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-CF1158A" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/15/放缩法/" class="archive-article-date">
-  <time datetime="2018-12-15T15:48:44.000Z" itemprop="datePublished">12-15</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/15/放缩法/">放缩法</a>
+    <h1 class="post-title" itemprop="name">
+      CF1158A The Party and Sweets
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/信息技术/">信息技术</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-06-12
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+		
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="Solution：贪心、模拟"><a href="#Solution：贪心、模拟" class="headerlink" title="Solution：贪心、模拟"></a>Solution：贪心、模拟</h2><a id="more"></a>
+<h5 id="1、英文题面"><a href="#1、英文题面" class="headerlink" title="1、英文题面"></a>1、英文题面</h5><p>$n$ boys and $m$ girls came to the party. Each boy presented each girl some integer number of sweets (possibly zero). All boys are numbered with integers from $1$ to $n$ and all girls are numbered with integers from $1$ to $m$. For all $1≤i≤n$ the minimal number of sweets, which $i$-th boy presented to some girl is equal to $b_i$ and for all $1≤j≤m$ the maximal number of sweets, which $j$-th girl received from some boy is equal to $g_j$.<br>More formally, let $a_{i,j}$ be the number of sweets which the $i$-th boy give to the $j$-th girl. Then $b_i$ is equal exactly to the minimum among values $a_{i,1}$,$a{i,2}$,…,$a_{i,m}$ and $g_j$ is equal exactly to the maximum among values $b_{1,j}$,$b_{2,j}$,…,$b_{n,j}$.<br>You are interested in the minimum total number of sweets that boys could present, so you need to minimize the sum of $a_{i,j}$ for all $(i,j)$ such that $1≤i≤n$ and $1≤j≤m$. You are given the numbers $b_1$,…,$b_n$ and $g_1$,…,$g_m$, determine this number.</p>
+<h5 id="2、中文题面"><a href="#2、中文题面" class="headerlink" title="2、中文题面"></a>2、中文题面</h5><p>有n个男孩和m个女孩，每个男孩都给女孩分了糖果，给出每个男孩分给每个女孩的糖果数量中最少的数量，和每个女孩从一个男孩中收到的最大糖果数量，求出女孩收到的总糖果数最少是多少。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年06月12日 23:21</p>
+        <p>原始链接： <a class="post-url" href="/2019/06/12/CF1158A/" title="CF1158A The Party and Sweets">https://ruixiangjiang.github.io/2019/06/12/CF1158A/</a></p>
+        <footer>
+            <a href="https://ruixiangjiang.github.io">
+                <img src="/images/logo.png" alt="RuixiangJiang">
+                RuixiangJiang
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://ruixiangjiang.github.io/2019/06/12/CF1158A/&title=《CF1158A The Party and Sweets》 — jrxjs的博客&pic=https://ruixiangjiang.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://ruixiangjiang.github.io/2019/06/12/CF1158A/&title=《CF1158A The Party and Sweets》 — jrxjs的博客&source=Solution：贪心、模拟" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ruixiangjiang.github.io/2019/06/12/CF1158A/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CF1158A The Party and Sweets》 — jrxjs的博客&url=https://ruixiangjiang.github.io/2019/06/12/CF1158A/&via=https://ruixiangjiang.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://ruixiangjiang.github.io/2019/06/12/CF1158A/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3ay47DIAwF0P7/T3e2lTpJr3FaKeawivogHBYWtnk84vE8HUe/ef38fbaj5/ffXzYwMDBuy+gvMfk2ByTz/0PFwMDYgHEUwc6f8+WevyV/1+HnGBgYGKfHu07gzg+OGBgYGNWAW00487CLgYGB0Uli83910tev5+IYGBg3ZOTh8vfPX+lvYGBg3IrxLI7fLKu8KgwMjNGM/DV5gWytVVBlY2Bg7Mbol/U7xbik2VkI2RgYGKMZ+QvWyvf51bH+BQ4MDIxJjGSKaiOz0+BcvGyBgYExmtEJuPnUVWrnWwwMjKmM/FJF56pEJ0xHe4+BgbEBY63slefHndw6Wg8GBsZQxlrh/tomQZ6yfii3YWBgDGUkS19LRPMt6JMwMDB2Y3SqdNUG51faABgYGEMZ58e7tXC5Vs6rgg9zcQwMjHGMPHRWi2hr23TZwMDAGMfoNBHzZDUnLYIxMDC2Yay1NvsNgE5Yx8DAmM3IrWsXvM7DcT7zhzIcBgbGNowk4FZL/MlxMJ+nfLbFwMDYgFE9FFZ/WT0sHr4FAwNjKONZHP1LG9XkOQq+GBgYoxmdzmD1+kW+HdVEFwMDYwdGEmTXrnZVW6HVclu00xgYGIMYnSsUeQthrQAXXbbAwMDAaLQHOvMUtg8DAwOjHXw7hbzoiImBgbEB46qCWjVodq6UYWBg7MPo17L6aXDeVGg1MjEwMO7H+APmx2qYvFL6rwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/数论/" class="color3">数论</a>
+    <a href="/tags/贪心/" class="color3">贪心</a>
       
-    <a href="/tags/数列/" class="color3">数列</a>
-      
-    <a href="/tags/放缩法/" class="color4">放缩法</a>
+    <a href="/tags/模拟/" class="color3">模拟</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution：贪心、模拟"><span class="post-toc-text">Solution：贪心、模拟</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1、英文题面"><span class="post-toc-text">1、英文题面</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2、中文题面"><span class="post-toc-text">2、中文题面</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
     
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/15/放缩法/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">放缩法</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/04/构造对偶/" class="archive-article-date">
-  <time datetime="2018-12-04T08:08:04.000Z" itemprop="datePublished">12-04</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/构造对偶/">构造对偶</a>
-    </h1>
-  
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTQzOS8xNzk4Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/数论/" class="color3">数论</a>
-      
-  </li>
+       if (typeof LivereTower === 'function') { return; }
 
-        </div>
-      
-  </div>
-</article>
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
 
-  
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/16/Disorderly-arrangement/" class="archive-article-date">
-  <time datetime="2018-11-16T05:14:15.000Z" itemprop="datePublished">11-16</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/16/Disorderly-arrangement/">错位排列问题</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/数论/" class="color3">数论</a>
-      
-    <a href="/tags/数列/" class="color3">数列</a>
-      
-    <a href="/tags/排列组合/" class="color5">排列组合</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/13/Topdamain/" class="archive-article-date">
-  <time datetime="2018-11-13T05:23:13.000Z" itemprop="datePublished">11-13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/13/Topdamain/">如何破解极域电子教室</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Windows/" class="color3">Windows</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/10/Generating-function/" class="archive-article-date">
-  <time datetime="2018-11-10T06:14:14.000Z" itemprop="datePublished">11-10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/10/Generating-function/">浅谈母函数</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/数论/" class="color3">数论</a>
-      
-    <a href="/tags/生成函数/" class="color5">生成函数</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/10/slayone/" class="archive-article-date">
-  <time datetime="2018-11-10T02:29:13.000Z" itemprop="datePublished">11-10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/10/slayone/">slayone</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/slay.one/" class="color4">slay.one</a>
-      
-    <a href="/tags/随笔/" class="color3">随笔</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/09/stone-games/" class="archive-article-date">
-  <time datetime="2018-11-09T13:04:44.000Z" itemprop="datePublished">11-09</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/09/stone-games/">从取石子游戏谈博弈论入门</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/数论/" class="color3">数论</a>
-      
-    <a href="/tags/博弈论/" class="color4">博弈论</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/07/characteristic-equation/" class="archive-article-date">
-  <time datetime="2018-11-07T15:36:01.000Z" itemprop="datePublished">11-07</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/07/characteristic-equation/">简析特征方程</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/数论/" class="color3">数论</a>
-      
-    <a href="/tags/数列/" class="color3">数列</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/06/startgit/" class="archive-article-date">
-  <time datetime="2018-11-05T17:01:01.000Z" itemprop="datePublished">11-06</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/06/startgit/">如何搭建及美化github.io博客</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Github/" class="color2">Github</a>
-      
-    <a href="/tags/Hexo/" class="color5">Hexo</a>
-      
-    <a href="/tags/shell/" class="color1">shell</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
 </section>
         
       </div>
